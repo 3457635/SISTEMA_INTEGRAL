@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLActivityDiagram1">
+  <activityRootModelMoniker Id="3701198e-711f-429a-be91-689291578d94" />
+  <nestedChildShapes>
+    <actionShape Id="dba9b738-598b-4264-a6bb-28f4d452b87e" absoluteBounds="0.875, 1.5, 1.25, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="854ee85b-4217-4f62-999a-067d534c90e2" LastKnownName="Solicitud de Servicio" />
+    </actionShape>
+    <actionShape Id="f8244c99-14e8-411e-bcba-d81998ae4ee1" absoluteBounds="2.875, 2, 1.25, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="6fbacfab-f0e1-4d24-be1f-70b2c2706c39" LastKnownName="Crea Orden " />
+    </actionShape>
+    <actionShape Id="7c08fdfc-70fc-45b4-89af-38eab6df46a6" absoluteBounds="4.5, 2, 1.125, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="355e4dac-83b5-4c14-bfa7-c59e6862c94d" LastKnownName="Autoriza Orden" />
+    </actionShape>
+    <actionShape Id="2d1f1125-2eda-4e74-9b0a-e821a5d2ba95" absoluteBounds="6.125, 2, 1.125, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="a62a068b-c015-4adc-9b7c-bdd87e99ef54" LastKnownName="Asigna Recursos" />
+    </actionShape>
+    <actionShape Id="45591083-b492-4d60-9027-d5cc09f9b46c" absoluteBounds="7.75, 2.5, 1.125, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="8d84a22e-60b7-44f4-b5b0-cf50ceae8047" LastKnownName="Orden de Servicio" />
+    </actionShape>
+    <controlFlowConnector edgePoints="[(1.5 : 1.875); (1.5 : 2.1875); (2.875 : 2.1875)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="54f4460a-3dba-4abf-8cd1-cb50668aca77" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="dba9b738-598b-4264-a6bb-28f4d452b87e" />
+        <actionShapeMoniker Id="f8244c99-14e8-411e-bcba-d81998ae4ee1" />
+      </nodes>
+    </controlFlowConnector>
+    <controlFlowConnector edgePoints="[(4.125 : 2.1875); (4.5 : 2.1875)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="5c2f18c2-c1f4-408c-bb3e-e3455f79d316" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="f8244c99-14e8-411e-bcba-d81998ae4ee1" />
+        <actionShapeMoniker Id="7c08fdfc-70fc-45b4-89af-38eab6df46a6" />
+      </nodes>
+    </controlFlowConnector>
+    <controlFlowConnector edgePoints="[(5.625 : 2.1875); (6.125 : 2.1875)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="125d054e-555b-40a4-aafb-a49379f83584" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="7c08fdfc-70fc-45b4-89af-38eab6df46a6" />
+        <actionShapeMoniker Id="2d1f1125-2eda-4e74-9b0a-e821a5d2ba95" />
+      </nodes>
+    </controlFlowConnector>
+    <controlFlowConnector edgePoints="[(6.6875 : 2.375); (6.6875 : 2.6875); (7.75 : 2.6875)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="Black">
+      <controlFlowMoniker Id="df7e16ef-3c9d-4fa0-891b-3c14c418acdd" />
+      <relativeChildShapes />
+      <nodes>
+        <actionShapeMoniker Id="2d1f1125-2eda-4e74-9b0a-e821a5d2ba95" />
+        <actionShapeMoniker Id="45591083-b492-4d60-9027-d5cc09f9b46c" />
+      </nodes>
+    </controlFlowConnector>
+    <commentShape Id="3927cd6b-7230-4c0b-a8e0-0f6dd7bded94" absoluteBounds="0.875, 0.875, 0.875, 0.375" customColor="251, 247, 200">
+      <commentMoniker Id="d4295d1f-ab36-4655-b46f-107638c1fe5f" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentShape Id="fcee060a-eb30-4512-afc0-c844700f4f2d" absoluteBounds="7.75, 2, 0.75, 0.375" customColor="251, 247, 200">
+      <commentMoniker Id="eb702997-73a5-4ef5-8295-aabb836ac4cb" />
+      <relativeChildShapes />
+    </commentShape>
+    <commentShape Id="597a741e-9f69-436c-a4be-777c2cd6b7fc" absoluteBounds="2.875, 1.375, 4.375, 0.375" customColor="251, 247, 200">
+      <commentMoniker Id="8455cb6b-58b4-48e4-96ba-db539f1f0f39" />
+      <relativeChildShapes />
+    </commentShape>
+    <forkNodeShape Id="0a038a7a-2d12-4a1f-a5c8-6a23192328a3" absoluteBounds="6.25, 3.375, 4.375, 0.125" customColor="32, 32, 32">
+      <forkNodeMoniker Id="bf3f9a0d-b59a-45a8-b43a-a005a712ce5e" LastKnownName="Fork1" />
+      <relativeChildShapes />
+    </forkNodeShape>
+    <actionShape Id="a653a67b-82c5-4997-8bbb-2d4b2f808568" absoluteBounds="5.375, 4.375, 1.375, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="c221c1a4-067c-4773-9725-028d3ddde013" LastKnownName="Asignacion de Gastos" />
+    </actionShape>
+    <actionShape Id="b7327a3f-fc20-4015-8404-2f591d3111a0" absoluteBounds="7.375, 4.375, 1.125, 0.375" customColor="161, 199, 231">
+      <opaqueActionMoniker Id="243d1031-3efe-400f-88c4-bfccb341f42f" LastKnownName="Action1" />
+    </actionShape>
+  </nestedChildShapes>
+</activityDiagram>

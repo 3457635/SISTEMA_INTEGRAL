@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+    <siteMapNode title="Mi Tablero" description="Home" url="~/default.aspx">
+       
+      <siteMapNode title="Reportes" description=""      >
+        <siteMapNode title="Ordenes de Servicio" description="Ordenes de Servicio Generadas." url="~/Reportes_Abiertos/RevisionViajes.aspx" />
+        <siteMapNode title="Incidentes" description="Registro de incidentes a dar seguimiento." url="~/Reportes_Abiertos/incidentes.aspx" />
+        <siteMapNode title="Documentación" description="Documentos de cada área." url="~/Reportes_Abiertos/Documentos.aspx" />
+        <siteMapNode title="Reuniones Semanales" description="Bitacora." url="~/Reportes_Abiertos/Bitacora.aspx" />
+        <siteMapNode title="Reporte Semanal" description="Reporte por area.">
+          <siteMapNode title="Auditor de diesel" url="~/Reportes_Abiertos/ReporteDiesel.aspx"></siteMapNode>
+          <!--<siteMapNode title="Contabilidad" url=""></siteMapNode>-->
+          <siteMapNode title="Mantenimiento" url="~/Reportes_Abiertos/ReporteMantenimiento.aspx"></siteMapNode>
+          <siteMapNode title="Recursos Humanos" url="~/Reportes_Abiertos/ReporteRH.aspx"></siteMapNode>
+          <siteMapNode title="Tráfico" url="~/Reportes_Abiertos/Trafico.aspx"></siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode title="Combustible" description=""      >
+        <siteMapNode title="Indicadores" description="Indicadores de diesel y rendimientos"      url="~/Auditor/IndicadoresRendimiento.aspx"/>
+        <siteMapNode title="Indicadores kms" description="Indicadores de km"      url="~/Auditor/IndicadorKm.aspx"/>
+        <siteMapNode title="Precios" description="Historial de precio del combustible"      url="~/Auditor/precios_combustible.aspx"/>
+        <siteMapNode title="Compras de Diesel" description="Registro de compras de diesel para bomba interna."      url="~/Auditor/comprasDiesel.aspx"/>
+        <siteMapNode title="Recargas Por Unidad" description="Reporte de recargas por unidad."      url="~/Auditor/Evaluacion_Unidad.aspx"/>
+        <siteMapNode title="Recargas El Paso" description="Recargas en galones."      url="~/Auditor/RecargasElPaso.aspx"/>
+        <siteMapNode title="Recargas Internas" description="Recargas Internas."      url="~/Auditor/recargasInternas.aspx"/> 
+        <siteMapNode title="Parciales" description="Recargas Parciales."      url="~/Auditor/RecargaParcial.aspx"/>
+        <siteMapNode title="Lectura de Bomba" description="Registro de lecturas de bomba interna."      url="~/Auditor/lecturaBomba.aspx"/>
+        <siteMapNode title="Insite" description="Registro de Insite."      url="~/Auditor/insite.aspx"/>
+      </siteMapNode>
+      <siteMapNode title="Mantenimiento" description=""      >
+      <siteMapNode title="Preventivos" description=""      >
+        <siteMapNode title="Nuevo" description="Nuevo Mantenimiento Preventivo" url="~/Mantenimiento/Preventivos.aspx" />
+        <siteMapNode title="Kilometros Recorridos" description="Ultimo Mantenimiento Realizado" url="~/Mantenimiento/ultimoServicio.aspx" />
+        </siteMapNode>     
+        <siteMapNode title="Correctivos" description="Fallas registradas al iniciar o finalizar el viaje." url="~/Mantenimiento/Correctivos.aspx" />
+        <siteMapNode title="Programar Preventivos" description="Programar Preventivos." url="~/Mantenimiento/Programacion_servicios.aspx" />
+        <siteMapNode title="Indicadores generales" description="Indicadores de mantenimientos." url="~/Mantenimiento/indicadores.aspx" />
+        <siteMapNode title="Indicadores mensuales" description="Indicadores de mantenimientos." url="~/Mantenimiento/graficaMantemientoMensual.aspx" />
+
+    </siteMapNode>
+      <siteMapNode title="Cotizaciones" description="Administrar Cotizaciones."      url="~/Cotizaciones/cotizaciones.aspx">
+      </siteMapNode>      
+        <siteMapNode title="Contabilidad" description="" >
+            <siteMapNode title="Clientes" description=""        >                
+                <siteMapNode title="Ingreso por Factura" description=""        url="~/Contabilidad/Facturas_Por_Cobrar2.aspx" />
+              <siteMapNode title="Saldo de clientes" description=""        url="~/Contabilidad/tablero/saldoClientes.aspx" />
+              <siteMapNode title="Ingreso por Remisión" description=""        url="~/Contabilidad/ingresoRemisiones.aspx" />
+              <siteMapNode title="Tablero" description=""        url="~/Contabilidad/tablero/tableroIngresos.aspx" />
+            </siteMapNode>
+            <siteMapNode title="Proveedores" description="Cuentas por pagar" url="" >
+                <siteMapNode title="Proveedores" description="Catalogo de Proveedores" url="~/Contabilidad/Facturar/Flujos/Catalogo_Proveedores/NuevoProveedor.aspx" />
+                <siteMapNode title="Programar Factura" description="Registrar factura para pago" url="~/Contabilidad/Facturar/Flujos/cxPagar/prepago.aspx" />
+                <siteMapNode title="Registrar Pago" description="Registro de pago a proveedor" url="~/Contabilidad/Facturar/Flujos/cxPagar/RegistroEgreso.aspx" />
+              <siteMapNode title="Tablero de Indicadores" description="graficas con indicadores de egresos" url="~/Contabilidad/Facturar/Flujos/cxPagar/tableroEgresos.aspx" />
+            </siteMapNode>            
+            <siteMapNode title="Factura America" description="Imprimir Factura" url="" >               
+                <siteMapNode title="Simple" description="Imprimir factura de tipo americana" url="~/Contabilidad/Facturar/FacturaAmericana.aspx" />
+              <siteMapNode title="Multiple" description="Factura americana para multiples ordenes." url="~/Contabilidad/Facturar/FacturaX1b2A.aspx" />
+              <siteMapNode title="Sin orden" description="Factura americana sin orden." url="~/Contabilidad/Facturar/FacturaX1b2ASin_orden.aspx" />
+              <siteMapNode title="Pdf" description="Pdf americano." url="~/Contabilidad/SubirPdfAmericano.aspx" />
+            </siteMapNode>
+          <siteMapNode title="Factura Electrónica" description="" >
+            <siteMapNode title="Viajes" description="Factura para viajes." url="~/Contabilidad/Facturar/Facturax1v3.aspx" />
+            <siteMapNode title="Renta de Cajas" description="Renta de Cajas" url="~/Contabilidad/Facturar/FacturaCajasv4.aspx" />
+            <siteMapNode title="Notas de Crédito" description="Notas de Crédito" url="~/Contabilidad/Facturar/notaDeCredito.aspx" />
+            <siteMapNode title="Otros" description=" Factura de movimiento Locales, Venta de Vehículos, etc." url="~/Contabilidad/Facturar/FacturaLocalV2.aspx" />
+            <siteMapNode title="Contactos" descripcion="Lista de contactos para envío de factura electrónica." url="~/Contabilidad/Facturar/ContactosCFDI.aspx" />                         
+          </siteMapNode>
+            <siteMapNode title="Flujo Efectivo" description=""        url="~/Contabilidad/flujoEfectivo.aspx" />
+            <siteMapNode title="Reporte Facturación" description=""        url="~/Contabilidad/ReporteFacturacion.aspx" />
+          <siteMapNode title="Cajas Facturadas" description=""        url="~/Contabilidad/facturaCajas.aspx" />
+          <siteMapNode title="Margen" description="Reporte de utilidad de ganancia."      url="~/Auditor/Margen.aspx"/>
+        </siteMapNode>
+        <siteMapNode title="Direccion" description=""        url="">
+            <siteMapNode title="Utilidad" description=""        url="~/Dirección/utilidad.aspx" />
+        </siteMapNode>
+        <siteMapNode title="Inspector" description="" url="">
+            <siteMapNode title="Salida de Vehiculo" description="Registro de odometro al salir" url="~/Inspector/Salida_Vehiculo.aspx"/>
+            <siteMapNode title="Seguimiento" description="Seguimiento de viajes" url="~/Inspector/seguimientos.aspx"/>
+            <siteMapNode title="Cierre de Viaje" description="Liquidación y Rendimiento al terminar el viaje." url="~/Inspector/Cierre_viaje.aspx" />
+          <siteMapNode title="Recargas sin orden" description="Recargas de combustible sin orden de servicio." url="~/Inspector/recargasSinOrden.aspx" />
+          <siteMapNode title="Fallas sin orden" description="Registro de fallas sin orden de servicio." url="~/Inspector/registroFallas.aspx" />
+          <siteMapNode title="Monitoreo" description="Listado de viajes en proceso." url="~/Inspector/SeguimientoPantalla.aspx" />
+          <siteMapNode title="Contactos Seguimiento" description="Lista de distribución de clientes para el seguimiento." url="~/Inspector/listasDistribucion.aspx" />
+        </siteMapNode>
+        <siteMapNode title="Servicio al cliente" description="Solicitud y precio de servicios." url="">
+            <siteMapNode title="Orden Servicio" description="Nueva solitud de servicio." url="~/Recepcion/Nueva_Solicitud.aspx" />             
+            <siteMapNode title="Catalogos" description="Catalogo de clientes, contactos y tarifas de choferes." url="" >
+                <siteMapNode title="Clientes" description="Alta,baja y modificación de clientes." url="~/Recepcion/Catalogos/Clientes.aspx" />
+                <siteMapNode title="Contacto" description="Alta,baja y/o modificación de contactos." url ="~/Recepcion/Catalogos/Contactos.aspx" />
+                <siteMapNode title="Tarifas Choferes" description="Alta,baja y/o modificación de las tarifas de los choferes para cada servicio." url="~/Recepcion/Catalogos/Tarifas_Choferes.aspx" />
+                <siteMapNode title="Precios" description="Modificación de precios." url="~/Recepcion/Catalogos/Precios.aspx" />
+                <siteMapNode title="Precios Renta Cajas" description="Precios por renta de cajas." url="~/Recepcion/Catalogos/precios_cajas.aspx" />
+            </siteMapNode>
+        </siteMapNode>
+        <siteMapNode title="Recursos Humanos" >
+           <siteMapNode title="Bitacora" description="Consulta de nomina." url="~/Reportes/bitacora.aspx"/>
+          <siteMapNode title="Folios facturas" description="Consulta de folios." url="~/Recursos_Humanos/foliosConsecutivos.aspx"/>
+          <siteMapNode title="Catalogo Tarifas" description="Actualiza las tarifas de la nomina." url="~/Reportes/Tarifas.aspx"/>
+          <!--Submenu para cursos-->
+          
+        <siteMapNode title="Induccion" description="Curso de inducción.">
+          <siteMapNode title="Curso" description = "Curso." url="~/Cursos/presentacion.pdf" />
+          <siteMapNode title="Presentacion" description = "Presentacion." url="~/Cursos/Presentacion.aspx" />
+          <siteMapNode title="Examen" description = "Realizar examen." url="~/Cursos/Examen.aspx" />
+          </siteMapNode>
+            
+        </siteMapNode>
+        <siteMapNode title="Supervisor Trafico">
+            <siteMapNode title="Autorizar Viaje" description="Autorización de viajes por realizar." url="~/Sup.Trafico/Autorizaciones.aspx"/>            
+            <siteMapNode title="Asignar Recursos" description="Asignar chofer,unidad y/o caja a una orden de servicio." url="~/Sup.Trafico/invisibles/Asignar_Recursos.aspx" />
+            <siteMapNode title="Orden Renta de Caja" description="Orden para renta de cajas." url="~/Sup.Trafico/renta_cajas.aspx"/>
+          <siteMapNode title="Cierre Renta de Caja" description="Cierre de renta de cajas." url="~/Sup.Trafico/cierreCaja.aspx"/>
+          <siteMapNode title="Tramites" description="Inspeccion de humo,Revalidación Vehicular,Inspección Fisico Mécanica,etc." url="~/Sup.Trafico/tramitesEquipos.aspx"/>
+          <!--<siteMapNode title="Indicadores" description="Indicadores de viajes realizados." url="~/Sup.Trafico/indicadores.aspx"/>-->
+          <siteMapNode title="Indicadores" description="Indicadores de viajes realizados.">
+            <siteMapNode title="Viajes Anual" description="Indicadores de viajes realizados anualmente." url="~/Sup.Trafico/graficas/ViajesAnuales.aspx"/>
+            <siteMapNode title="Viajes Mensual" description="Indicadores de viajes realizados mensualmente." url="~/Sup.Trafico/graficas/ViajesMensuales.aspx"/>
+            <siteMapNode title="Viajes Semanal y Diario" description="Indicadores de viajes realizados semanalmente y diariamnte." url="~/Sup.Trafico/graficas/ViajesSemanaDiaria.aspx"/>
+            <siteMapNode title="Viajes Comparativo Anual" description="Indicadores de viajes realizados por año." url="~/Sup.Trafico/graficas/ViajesComparativo.aspx"/>
+            <siteMapNode title="Uso de Equipo" description="Indicadores de uso de equipos." url="~/Sup.Trafico/UsoEquipo.aspx"/>
+            <siteMapNode title="Llegadas a Tiempo" description="Indicadores de llegadas a tiempo." url="~/Sup.Trafico/graficas/Arribos.aspx"/>
+            <siteMapNode title="Viajes Vacios" description="Indicadores de número de viajes vacios." url="~/Sup.Trafico/graficas/ViajesVacios.aspx"/>
+            <siteMapNode title="Viajes Optimizados(Beta)" description="Indicadores de viajes optimizados." url="~/Sup.Trafico/graficas/ViajesOptimizados.aspx"/>
+          </siteMapNode>
+          <siteMapNode title="Catalogos" description="Catalogos de Unidades y Cajas">
+            <siteMapNode title="Unidades" description="Catalogo de Unidades" url="~/Sup.Trafico/Catalogos/Unidades.aspx"/>
+            <!--<siteMapNode title="Cajas" description="Catalogo de Cajas" url="~/Sup.Trafico/Catalogos/Cajas.aspx"/>-->
+          </siteMapNode>
+        </siteMapNode>
+       <siteMapNode title="Ayuda" description="Manuales."      url="~/ayuda/ayuda.aspx"/>
+      <siteMapNode title="Herramientas" description="Herramientas."      url="">
+        <siteMapNode title="Configurar" description=""        url="" >
+          <siteMapNode title="Seguimiento" description=""        url="~/ubicaciones/ubicaciones.aspx" />
+        </siteMapNode>
+        <siteMapNode title="Enlaces externos" description="Enlaces a otros sitios" url="~/herramientas/enlacesexternos.aspx"/>
+      <siteMapNode title="Copias de seguridad" description="Registro de respaldos." url="~/herramientas/CopiaSeguridad.aspx"/>
+      </siteMapNode>
+      <siteMapNode title="Administrador" description="Sistemas">
+        <siteMapNode title="Eliminar usuario" description="Eliminar usuario" url="~/Admin/EliminarUsuario.aspx"/>
+        <siteMapNode title="Manejar roles" description="Manejar roles" url="~/Admin/Manejar_Roles.aspx"/>
+        <siteMapNode title="Nuevo rol" description="Nuevo rol" url="~/Admin/Nuevo_Rol.aspx"/>
+        <siteMapNode title="Nuevo usuario" description="Nuevo usuario" url="~/Admin/Nuevo_Usuario.aspx"/>
+        
+      </siteMapNode>
+    </siteMapNode> 
+</siteMap>
+

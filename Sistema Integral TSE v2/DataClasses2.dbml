@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="tse_erp" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=rtbygfdtxb.database.windows.net;Initial Catalog=tse_erp;User ID=omarifr" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="tse_erpConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="parametros">
+    <Type Name="parametro">
+      <Column Name="variable" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="valor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.incidentes" Member="incidentes">
+    <Type Name="incidente">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="incidente" Type="System.String" DbType="NVarChar(350) NOT NULL" CanBeNull="false" />
+      <Column Name="fechaIncidente" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="fechaPropuesta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fechaRespuesta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="comentarios" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idEstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="accion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="cuadrante" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="urgencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="importancia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="estimado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_incidente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tipo_incidente_incidente" Member="tipo_incidente" ThisKey="id_tipo_incidente" OtherKey="id_tipo_incidente" Type="tipo_incidente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tipo_incidente" Member="tipo_incidentes">
+    <Type Name="tipo_incidente">
+      <Column Name="id_tipo_incidente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipo_incidente" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="inactivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tipo_incidente_incidente" Member="incidentes" ThisKey="id_tipo_incidente" OtherKey="id_tipo_incidente" Type="incidente" />
+    </Type>
+  </Table>
+</Database>

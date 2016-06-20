@@ -1,0 +1,2769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://tsewservice.azurewebsites.net/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://tsewservice.azurewebsites.net/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://tsewservice.azurewebsites.net/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Entities" />
+      <xsd:import schemaLocation="http://tsewservice.azurewebsites.net/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_crearFacturaOtros_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearFacturaOtros" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearFacturaOtros_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearFacturaOtrosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarFacturaPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarFacturaPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarFacturaPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarFacturaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCfdiPorIdFactura_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCfdiPorIdFactura" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCfdiPorIdFactura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCfdiPorIdFacturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_seguimientoVacio_InputMessage">
+    <wsdl:part name="parameters" element="tns:seguimientoVacio" />
+  </wsdl:message>
+  <wsdl:message name="IService1_seguimientoVacio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:seguimientoVacioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarAspNetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarAspNetUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarAspNetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarAspNetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUsuarioNetPorNombre_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuarioNetPorNombre" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUsuarioNetPorNombre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUsuarioNetPorNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_enviarMail_InputMessage">
+    <wsdl:part name="parameters" element="tns:enviarMail" />
+  </wsdl:message>
+  <wsdl:message name="IService1_enviarMail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:enviarMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarFecha" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarTarifaUnichofer_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarTarifaUnichofer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarTarifaUnichofer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarTarifaUnichoferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarTarifaMultichofer_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarTarifaMultichofer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarTarifaMultichofer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarTarifaMultichoferResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarNominaPorIdViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarNominaPorIdViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarNominaPorIdViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarNominaPorIdViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearFecha" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearViatico_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearViatico" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearViatico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearViaticoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarTrayectoPorAsignacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarTrayectoPorAsignacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarTrayectoPorAsignacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarTrayectoPorAsignacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarTrayectoAsignado_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTrayectoAsignado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarTrayectoAsignado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarTrayectoAsignadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearTrayectoAsignado_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearTrayectoAsignado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearTrayectoAsignado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearTrayectoAsignadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarTrayectoAsignado_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTrayectoAsignado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarTrayectoAsignado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarTrayectoAsignadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCajaPorAsignacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCajaPorAsignacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCajaPorAsignacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCajaPorAsignacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarCajaAsignada_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarCajaAsignada" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarCajaAsignada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarCajaAsignadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearCajaAsignada_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearCajaAsignada" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearCajaAsignada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearCajaAsignadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarCajaAsignada_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarCajaAsignada" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarCajaAsignada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarCajaAsignadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarOrdenPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarOrdenPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarOrdenPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarOrdenPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarAsignacionPorOrden_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarAsignacionPorOrden" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarAsignacionPorOrden_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarAsignacionPorOrdenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarAsignacionPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarAsignacionPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarAsignacionPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarAsignacionPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarEquipoAsignadoPorIdViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarEquipoAsignadoPorIdViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarEquipoAsignadoPorIdViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarEquipoAsignadoPorIdViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRendimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearRendimiento" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRendimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearRendimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearNuevaOrden_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearNuevaOrden" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearNuevaOrden_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearNuevaOrdenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEquipoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEquipoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEquipoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEquipoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearEquipoOperacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearEquipoOperacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearEquipoOperacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearEquipoOperacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarEquipoOperacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarEquipoOperacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarEquipoOperacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarEquipoOperacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarEquipoAsignado_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarEquipoAsignado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarEquipoAsignado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarEquipoAsignadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUltimoViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUltimoViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUltimoViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUltimoViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRecorridoPorIdEquipoAsignado_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRecorridoPorIdEquipoAsignado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRecorridoPorIdEquipoAsignado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRecorridoPorIdEquipoAsignadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRecorrido_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRecorrido" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRecorrido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRecorridoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRecorrido_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearRecorrido" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRecorrido_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearRecorridoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarRecorridoPorIdViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:listarRecorridoPorIdViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_listarRecorridoPorIdViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:listarRecorridoPorIdViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarViajeDeRegresoDeGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarViajeDeRegresoDeGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarViajeDeRegresoDeGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarViajeDeRegresoDeGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_hemosLlegadoADestino_InputMessage">
+    <wsdl:part name="parameters" element="tns:hemosLlegadoADestino" />
+  </wsdl:message>
+  <wsdl:message name="IService1_hemosLlegadoADestino_OutputMessage">
+    <wsdl:part name="parameters" element="tns:hemosLlegadoADestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarLlegadaDestino_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarLlegadaDestino" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarLlegadaDestino_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarLlegadaDestinoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLlegadaPorIdViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLlegadaPorIdViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLlegadaPorIdViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLlegadaPorIdViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearSolicitudServicio_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearSolicitudServicio" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearSolicitudServicio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearSolicitudServicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarViajePorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarViajePorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarViajePorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarViajePorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarViajePorConsecutivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarViajePorConsecutivo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarViajePorConsecutivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarViajePorConsecutivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarFechaPorIdViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarFechaPorIdViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarFechaPorIdViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarFechaPorIdViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarLlaveRuta_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarLlaveRuta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarLlaveRuta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarLlaveRutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLlaveRutaPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLlaveRutaPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLlaveRutaPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLlaveRutaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEquipoPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEquipoPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEquipoPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEquipoPorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearOdometro_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearOdometro" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearOdometro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearOdometroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarOdometro_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarOdometro" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarOdometro_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarOdometroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarOdometroPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarOdometroPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarOdometroPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarOdometroPorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearLecturaBomba_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearLecturaBomba" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearLecturaBomba_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearLecturaBombaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLecturaPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLecturaPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLecturaPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLecturaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLecturaAnterior_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLecturaAnterior" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLecturaAnterior_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLecturaAnteriorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUltimaLectura_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUltimaLectura" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUltimaLectura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUltimaLecturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarLecturaBomba_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarLecturaBomba" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarLecturaBomba_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarLecturaBombaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearCompraDiesel_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearCompraDiesel" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearCompraDiesel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearCompraDieselResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUltimaCompraDiesel_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUltimaCompraDiesel" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarUltimaCompraDiesel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarUltimaCompraDieselResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearMargen_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearMargen" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearMargen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearMargenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarMargen_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarMargen" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarMargen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarMargenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarMargenPorIdViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarMargenPorIdViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarMargenPorIdViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarMargenPorIdViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_viajesRealizadosPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:viajesRealizadosPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_viajesRealizadosPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:viajesRealizadosPorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarRendimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:regresarRendimiento" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarRendimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:regresarRendimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRendimientoPorIdEquipoAsignado_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRendimientoPorIdEquipoAsignado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRendimientoPorIdEquipoAsignado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRendimientoPorIdEquipoAsignadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRendimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRendimiento" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRendimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRendimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarKms_InputMessage">
+    <wsdl:part name="parameters" element="tns:regresarKms" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarKms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:regresarKmsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarLts_InputMessage">
+    <wsdl:part name="parameters" element="tns:regresarLts" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarLts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:regresarLtsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarParcialPorIdRendimiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarParcialPorIdRendimiento" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarParcialPorIdRendimiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarParcialPorIdRendimientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCostoCombustiblePorFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCostoCombustiblePorFecha" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCostoCombustiblePorFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCostoCombustiblePorFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRecargaCombustible_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearRecargaCombustible" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRecargaCombustible_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearRecargaCombustibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarLtsPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:regresarLtsPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarLtsPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:regresarLtsPorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRecargaParcial_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearRecargaParcial" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRecargaParcial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearRecargaParcialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRecargaParcial_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRecargaParcial" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRecargaParcial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRecargaParcialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRecargasCombustiblePorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRecargasCombustiblePorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRecargasCombustiblePorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRecargasCombustiblePorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRendimientoPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRendimientoPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRendimientoPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRendimientoPorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_siguienteGrupoRecarga_InputMessage">
+    <wsdl:part name="parameters" element="tns:siguienteGrupoRecarga" />
+  </wsdl:message>
+  <wsdl:message name="IService1_siguienteGrupoRecarga_OutputMessage">
+    <wsdl:part name="parameters" element="tns:siguienteGrupoRecargaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarRecargaParcial_InputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarRecargaParcial" />
+  </wsdl:message>
+  <wsdl:message name="IService1_eliminarRecargaParcial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:eliminarRecargaParcialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarLtsIntPorFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:regresarLtsIntPorFechas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_regresarLtsIntPorFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:regresarLtsIntPorFechasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEquipoAsignado_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEquipoAsignado" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEquipoAsignado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEquipoAsignadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLtsPorAsignacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLtsPorAsignacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarLtsPorAsignacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarLtsPorAsignacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRendimientoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRendimientoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRendimientoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRendimientoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRecargasParcialesPorGrupo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRecargasParcialesPorGrupo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRecargasParcialesPorGrupo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRecargasParcialesPorGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_borrarRecargaParcial_InputMessage">
+    <wsdl:part name="parameters" element="tns:borrarRecargaParcial" />
+  </wsdl:message>
+  <wsdl:message name="IService1_borrarRecargaParcial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:borrarRecargaParcialResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarContactoPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarContactoPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarContactoPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarContactoPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearCotizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearCotizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCotizacionPorConsecutivo_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCotizacionPorConsecutivo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCotizacionPorConsecutivo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCotizacionPorConsecutivoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCotizacionPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCotizacionPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarCotizacionPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarCotizacionPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarCotizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarCotizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarPersonaPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarPersonaPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarPersonaPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarPersonaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearSolicitudCotizacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearSolicitudCotizacion" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearSolicitudCotizacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearSolicitudCotizacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEmpresaPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEmpresaPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarEmpresaPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarEmpresaPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarPrecioPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarPrecioPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarPrecioPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarPrecioPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearPrecio_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearPrecio" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearPrecio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearPrecioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRemision_InputMessage">
+    <wsdl:part name="parameters" element="tns:crearRemision" />
+  </wsdl:message>
+  <wsdl:message name="IService1_crearRemision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:crearRemisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRemisionPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRemisionPorId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRemisionPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRemisionPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRemisionPorIdViaje_InputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRemisionPorIdViaje" />
+  </wsdl:message>
+  <wsdl:message name="IService1_buscarRemisionPorIdViaje_OutputMessage">
+    <wsdl:part name="parameters" element="tns:buscarRemisionPorIdViajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRemision_InputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRemision" />
+  </wsdl:message>
+  <wsdl:message name="IService1_actualizarRemision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:actualizarRemisionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="crearFacturaOtros">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearFacturaOtros" message="tns:IService1_crearFacturaOtros_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearFacturaOtrosResponse" message="tns:IService1_crearFacturaOtros_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarFacturaPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarFacturaPorId" message="tns:IService1_buscarFacturaPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarFacturaPorIdResponse" message="tns:IService1_buscarFacturaPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarCfdiPorIdFactura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarCfdiPorIdFactura" message="tns:IService1_buscarCfdiPorIdFactura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarCfdiPorIdFacturaResponse" message="tns:IService1_buscarCfdiPorIdFactura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="seguimientoVacio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/seguimientoVacio" message="tns:IService1_seguimientoVacio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/seguimientoVacioResponse" message="tns:IService1_seguimientoVacio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarAspNetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarAspNetUser" message="tns:IService1_actualizarAspNetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarAspNetUserResponse" message="tns:IService1_actualizarAspNetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuarioNetPorNombre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarUsuarioNetPorNombre" message="tns:IService1_buscarUsuarioNetPorNombre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarUsuarioNetPorNombreResponse" message="tns:IService1_buscarUsuarioNetPorNombre_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="enviarMail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/enviarMail" message="tns:IService1_enviarMail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/enviarMailResponse" message="tns:IService1_enviarMail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarFecha" message="tns:IService1_actualizarFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarFechaResponse" message="tns:IService1_actualizarFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarTarifaUnichofer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarTarifaUnichofer" message="tns:IService1_buscarTarifaUnichofer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarTarifaUnichoferResponse" message="tns:IService1_buscarTarifaUnichofer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarTarifaMultichofer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarTarifaMultichofer" message="tns:IService1_buscarTarifaMultichofer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarTarifaMultichoferResponse" message="tns:IService1_buscarTarifaMultichofer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarNominaPorIdViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarNominaPorIdViaje" message="tns:IService1_buscarNominaPorIdViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarNominaPorIdViajeResponse" message="tns:IService1_buscarNominaPorIdViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearFecha" message="tns:IService1_crearFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearFechaResponse" message="tns:IService1_crearFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearViatico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearViatico" message="tns:IService1_crearViatico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearViaticoResponse" message="tns:IService1_crearViatico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarTrayectoPorAsignacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarTrayectoPorAsignacion" message="tns:IService1_buscarTrayectoPorAsignacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarTrayectoPorAsignacionResponse" message="tns:IService1_buscarTrayectoPorAsignacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTrayectoAsignado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarTrayectoAsignado" message="tns:IService1_actualizarTrayectoAsignado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarTrayectoAsignadoResponse" message="tns:IService1_actualizarTrayectoAsignado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearTrayectoAsignado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearTrayectoAsignado" message="tns:IService1_crearTrayectoAsignado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearTrayectoAsignadoResponse" message="tns:IService1_crearTrayectoAsignado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTrayectoAsignado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarTrayectoAsignado" message="tns:IService1_eliminarTrayectoAsignado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarTrayectoAsignadoResponse" message="tns:IService1_eliminarTrayectoAsignado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarCajaPorAsignacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarCajaPorAsignacion" message="tns:IService1_buscarCajaPorAsignacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarCajaPorAsignacionResponse" message="tns:IService1_buscarCajaPorAsignacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCajaAsignada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarCajaAsignada" message="tns:IService1_actualizarCajaAsignada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarCajaAsignadaResponse" message="tns:IService1_actualizarCajaAsignada_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearCajaAsignada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearCajaAsignada" message="tns:IService1_crearCajaAsignada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearCajaAsignadaResponse" message="tns:IService1_crearCajaAsignada_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCajaAsignada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarCajaAsignada" message="tns:IService1_eliminarCajaAsignada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarCajaAsignadaResponse" message="tns:IService1_eliminarCajaAsignada_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarOrdenPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarOrdenPorId" message="tns:IService1_buscarOrdenPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarOrdenPorIdResponse" message="tns:IService1_buscarOrdenPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarAsignacionPorOrden">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarAsignacionPorOrden" message="tns:IService1_buscarAsignacionPorOrden_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarAsignacionPorOrdenResponse" message="tns:IService1_buscarAsignacionPorOrden_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarAsignacionPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarAsignacionPorId" message="tns:IService1_buscarAsignacionPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarAsignacionPorIdResponse" message="tns:IService1_buscarAsignacionPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarEquipoAsignadoPorIdViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listarEquipoAsignadoPorIdViaje" message="tns:IService1_listarEquipoAsignadoPorIdViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listarEquipoAsignadoPorIdViajeResponse" message="tns:IService1_listarEquipoAsignadoPorIdViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearRendimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearRendimiento" message="tns:IService1_crearRendimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearRendimientoResponse" message="tns:IService1_crearRendimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearNuevaOrden">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearNuevaOrden" message="tns:IService1_crearNuevaOrden_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearNuevaOrdenResponse" message="tns:IService1_crearNuevaOrden_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarEquipoPorId" message="tns:IService1_buscarEquipoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarEquipoPorIdResponse" message="tns:IService1_buscarEquipoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearEquipoOperacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearEquipoOperacion" message="tns:IService1_crearEquipoOperacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearEquipoOperacionResponse" message="tns:IService1_crearEquipoOperacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEquipoOperacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarEquipoOperacion" message="tns:IService1_actualizarEquipoOperacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarEquipoOperacionResponse" message="tns:IService1_actualizarEquipoOperacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEquipoAsignado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarEquipoAsignado" message="tns:IService1_actualizarEquipoAsignado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarEquipoAsignadoResponse" message="tns:IService1_actualizarEquipoAsignado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimoViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarUltimoViaje" message="tns:IService1_buscarUltimoViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarUltimoViajeResponse" message="tns:IService1_buscarUltimoViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecorridoPorIdEquipoAsignado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRecorridoPorIdEquipoAsignado" message="tns:IService1_buscarRecorridoPorIdEquipoAsignado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRecorridoPorIdEquipoAsignadoResponse" message="tns:IService1_buscarRecorridoPorIdEquipoAsignado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRecorrido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarRecorrido" message="tns:IService1_actualizarRecorrido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarRecorridoResponse" message="tns:IService1_actualizarRecorrido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearRecorrido">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearRecorrido" message="tns:IService1_crearRecorrido_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearRecorridoResponse" message="tns:IService1_crearRecorrido_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="listarRecorridoPorIdViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/listarRecorridoPorIdViaje" message="tns:IService1_listarRecorridoPorIdViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/listarRecorridoPorIdViajeResponse" message="tns:IService1_listarRecorridoPorIdViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajeDeRegresoDeGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarViajeDeRegresoDeGrupo" message="tns:IService1_buscarViajeDeRegresoDeGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarViajeDeRegresoDeGrupoResponse" message="tns:IService1_buscarViajeDeRegresoDeGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="hemosLlegadoADestino">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/hemosLlegadoADestino" message="tns:IService1_hemosLlegadoADestino_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/hemosLlegadoADestinoResponse" message="tns:IService1_hemosLlegadoADestino_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLlegadaDestino">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarLlegadaDestino" message="tns:IService1_actualizarLlegadaDestino_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarLlegadaDestinoResponse" message="tns:IService1_actualizarLlegadaDestino_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarLlegadaPorIdViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarLlegadaPorIdViaje" message="tns:IService1_buscarLlegadaPorIdViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarLlegadaPorIdViajeResponse" message="tns:IService1_buscarLlegadaPorIdViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearSolicitudServicio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearSolicitudServicio" message="tns:IService1_crearSolicitudServicio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearSolicitudServicioResponse" message="tns:IService1_crearSolicitudServicio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajePorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarViajePorId" message="tns:IService1_buscarViajePorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarViajePorIdResponse" message="tns:IService1_buscarViajePorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajePorConsecutivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarViajePorConsecutivo" message="tns:IService1_buscarViajePorConsecutivo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarViajePorConsecutivoResponse" message="tns:IService1_buscarViajePorConsecutivo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarViaje" message="tns:IService1_actualizarViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarViajeResponse" message="tns:IService1_actualizarViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarFechaPorIdViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarFechaPorIdViaje" message="tns:IService1_buscarFechaPorIdViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarFechaPorIdViajeResponse" message="tns:IService1_buscarFechaPorIdViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLlaveRuta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarLlaveRuta" message="tns:IService1_actualizarLlaveRuta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarLlaveRutaResponse" message="tns:IService1_actualizarLlaveRuta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarLlaveRutaPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarLlaveRutaPorId" message="tns:IService1_buscarLlaveRutaPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarLlaveRutaPorIdResponse" message="tns:IService1_buscarLlaveRutaPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarEquipoPorGrupo" message="tns:IService1_buscarEquipoPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarEquipoPorGrupoResponse" message="tns:IService1_buscarEquipoPorGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearOdometro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearOdometro" message="tns:IService1_crearOdometro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearOdometroResponse" message="tns:IService1_crearOdometro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarOdometro">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarOdometro" message="tns:IService1_actualizarOdometro_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarOdometroResponse" message="tns:IService1_actualizarOdometro_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarOdometroPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarOdometroPorGrupo" message="tns:IService1_buscarOdometroPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarOdometroPorGrupoResponse" message="tns:IService1_buscarOdometroPorGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearLecturaBomba">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearLecturaBomba" message="tns:IService1_crearLecturaBomba_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearLecturaBombaResponse" message="tns:IService1_crearLecturaBomba_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarLecturaPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarLecturaPorId" message="tns:IService1_buscarLecturaPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarLecturaPorIdResponse" message="tns:IService1_buscarLecturaPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarLecturaAnterior">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarLecturaAnterior" message="tns:IService1_buscarLecturaAnterior_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarLecturaAnteriorResponse" message="tns:IService1_buscarLecturaAnterior_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimaLectura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarUltimaLectura" message="tns:IService1_buscarUltimaLectura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarUltimaLecturaResponse" message="tns:IService1_buscarUltimaLectura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLecturaBomba">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarLecturaBomba" message="tns:IService1_actualizarLecturaBomba_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarLecturaBombaResponse" message="tns:IService1_actualizarLecturaBomba_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearCompraDiesel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearCompraDiesel" message="tns:IService1_crearCompraDiesel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearCompraDieselResponse" message="tns:IService1_crearCompraDiesel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimaCompraDiesel">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarUltimaCompraDiesel" message="tns:IService1_buscarUltimaCompraDiesel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarUltimaCompraDieselResponse" message="tns:IService1_buscarUltimaCompraDiesel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearMargen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearMargen" message="tns:IService1_crearMargen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearMargenResponse" message="tns:IService1_crearMargen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarMargen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarMargen" message="tns:IService1_actualizarMargen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarMargenResponse" message="tns:IService1_actualizarMargen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarMargenPorIdViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarMargenPorIdViaje" message="tns:IService1_buscarMargenPorIdViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarMargenPorIdViajeResponse" message="tns:IService1_buscarMargenPorIdViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="viajesRealizadosPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/viajesRealizadosPorGrupo" message="tns:IService1_viajesRealizadosPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/viajesRealizadosPorGrupoResponse" message="tns:IService1_viajesRealizadosPorGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="regresarRendimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/regresarRendimiento" message="tns:IService1_regresarRendimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/regresarRendimientoResponse" message="tns:IService1_regresarRendimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorIdEquipoAsignado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRendimientoPorIdEquipoAsignado" message="tns:IService1_buscarRendimientoPorIdEquipoAsignado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRendimientoPorIdEquipoAsignadoResponse" message="tns:IService1_buscarRendimientoPorIdEquipoAsignado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRendimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarRendimiento" message="tns:IService1_actualizarRendimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarRendimientoResponse" message="tns:IService1_actualizarRendimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="regresarKms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/regresarKms" message="tns:IService1_regresarKms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/regresarKmsResponse" message="tns:IService1_regresarKms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="regresarLts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/regresarLts" message="tns:IService1_regresarLts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/regresarLtsResponse" message="tns:IService1_regresarLts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarParcialPorIdRendimiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarParcialPorIdRendimiento" message="tns:IService1_buscarParcialPorIdRendimiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarParcialPorIdRendimientoResponse" message="tns:IService1_buscarParcialPorIdRendimiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarCostoCombustiblePorFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarCostoCombustiblePorFecha" message="tns:IService1_buscarCostoCombustiblePorFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarCostoCombustiblePorFechaResponse" message="tns:IService1_buscarCostoCombustiblePorFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearRecargaCombustible">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearRecargaCombustible" message="tns:IService1_crearRecargaCombustible_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearRecargaCombustibleResponse" message="tns:IService1_crearRecargaCombustible_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="regresarLtsPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/regresarLtsPorGrupo" message="tns:IService1_regresarLtsPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/regresarLtsPorGrupoResponse" message="tns:IService1_regresarLtsPorGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearRecargaParcial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearRecargaParcial" message="tns:IService1_crearRecargaParcial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearRecargaParcialResponse" message="tns:IService1_crearRecargaParcial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRecargaParcial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarRecargaParcial" message="tns:IService1_actualizarRecargaParcial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarRecargaParcialResponse" message="tns:IService1_actualizarRecargaParcial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecargasCombustiblePorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRecargasCombustiblePorGrupo" message="tns:IService1_buscarRecargasCombustiblePorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRecargasCombustiblePorGrupoResponse" message="tns:IService1_buscarRecargasCombustiblePorGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRendimientoPorGrupo" message="tns:IService1_buscarRendimientoPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRendimientoPorGrupoResponse" message="tns:IService1_buscarRendimientoPorGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="siguienteGrupoRecarga">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/siguienteGrupoRecarga" message="tns:IService1_siguienteGrupoRecarga_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/siguienteGrupoRecargaResponse" message="tns:IService1_siguienteGrupoRecarga_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRecargaParcial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/eliminarRecargaParcial" message="tns:IService1_eliminarRecargaParcial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/eliminarRecargaParcialResponse" message="tns:IService1_eliminarRecargaParcial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="regresarLtsIntPorFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/regresarLtsIntPorFechas" message="tns:IService1_regresarLtsIntPorFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/regresarLtsIntPorFechasResponse" message="tns:IService1_regresarLtsIntPorFechas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoAsignado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarEquipoAsignado" message="tns:IService1_buscarEquipoAsignado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarEquipoAsignadoResponse" message="tns:IService1_buscarEquipoAsignado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarLtsPorAsignacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarLtsPorAsignacion" message="tns:IService1_buscarLtsPorAsignacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarLtsPorAsignacionResponse" message="tns:IService1_buscarLtsPorAsignacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRendimientoPorId" message="tns:IService1_buscarRendimientoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRendimientoPorIdResponse" message="tns:IService1_buscarRendimientoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecargasParcialesPorGrupo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRecargasParcialesPorGrupo" message="tns:IService1_buscarRecargasParcialesPorGrupo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRecargasParcialesPorGrupoResponse" message="tns:IService1_buscarRecargasParcialesPorGrupo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="borrarRecargaParcial">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/borrarRecargaParcial" message="tns:IService1_borrarRecargaParcial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/borrarRecargaParcialResponse" message="tns:IService1_borrarRecargaParcial_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarContactoPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarContactoPorId" message="tns:IService1_buscarContactoPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarContactoPorIdResponse" message="tns:IService1_buscarContactoPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearCotizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearCotizacion" message="tns:IService1_crearCotizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearCotizacionResponse" message="tns:IService1_crearCotizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarCotizacionPorConsecutivo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarCotizacionPorConsecutivo" message="tns:IService1_buscarCotizacionPorConsecutivo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarCotizacionPorConsecutivoResponse" message="tns:IService1_buscarCotizacionPorConsecutivo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarCotizacionPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarCotizacionPorId" message="tns:IService1_buscarCotizacionPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarCotizacionPorIdResponse" message="tns:IService1_buscarCotizacionPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCotizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarCotizacion" message="tns:IService1_actualizarCotizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarCotizacionResponse" message="tns:IService1_actualizarCotizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarPersonaPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarPersonaPorId" message="tns:IService1_buscarPersonaPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarPersonaPorIdResponse" message="tns:IService1_buscarPersonaPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearSolicitudCotizacion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearSolicitudCotizacion" message="tns:IService1_crearSolicitudCotizacion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearSolicitudCotizacionResponse" message="tns:IService1_crearSolicitudCotizacion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarEmpresaPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarEmpresaPorId" message="tns:IService1_buscarEmpresaPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarEmpresaPorIdResponse" message="tns:IService1_buscarEmpresaPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarPrecioPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarPrecioPorId" message="tns:IService1_buscarPrecioPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarPrecioPorIdResponse" message="tns:IService1_buscarPrecioPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearPrecio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearPrecio" message="tns:IService1_crearPrecio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearPrecioResponse" message="tns:IService1_crearPrecio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="crearRemision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/crearRemision" message="tns:IService1_crearRemision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/crearRemisionResponse" message="tns:IService1_crearRemision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRemisionPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRemisionPorId" message="tns:IService1_buscarRemisionPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRemisionPorIdResponse" message="tns:IService1_buscarRemisionPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarRemisionPorIdViaje">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/buscarRemisionPorIdViaje" message="tns:IService1_buscarRemisionPorIdViaje_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/buscarRemisionPorIdViajeResponse" message="tns:IService1_buscarRemisionPorIdViaje_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRemision">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/actualizarRemision" message="tns:IService1_actualizarRemision_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/actualizarRemisionResponse" message="tns:IService1_actualizarRemision_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="crearFacturaOtros">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearFacturaOtros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarFacturaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarFacturaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCfdiPorIdFactura">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCfdiPorIdFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seguimientoVacio">
+      <soap:operation soapAction="http://tempuri.org/IService1/seguimientoVacio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarAspNetUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarAspNetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuarioNetPorNombre">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUsuarioNetPorNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarMail">
+      <soap:operation soapAction="http://tempuri.org/IService1/enviarMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarFecha">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarTarifaUnichofer">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarTarifaUnichofer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarTarifaMultichofer">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarTarifaMultichofer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarNominaPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarNominaPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearFecha">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearViatico">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearViatico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarTrayectoPorAsignacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarTrayectoPorAsignacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTrayectoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarTrayectoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearTrayectoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearTrayectoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTrayectoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarTrayectoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCajaPorAsignacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCajaPorAsignacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCajaAsignada">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarCajaAsignada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearCajaAsignada">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearCajaAsignada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCajaAsignada">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarCajaAsignada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarOrdenPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarOrdenPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarAsignacionPorOrden">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarAsignacionPorOrden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarAsignacionPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarAsignacionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarEquipoAsignadoPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarEquipoAsignadoPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearNuevaOrden">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearNuevaOrden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEquipoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearEquipoOperacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearEquipoOperacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEquipoOperacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarEquipoOperacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimoViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUltimoViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecorridoPorIdEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRecorridoPorIdEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRecorrido">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRecorrido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRecorrido">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRecorrido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarRecorridoPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarRecorridoPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajeDeRegresoDeGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarViajeDeRegresoDeGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hemosLlegadoADestino">
+      <soap:operation soapAction="http://tempuri.org/IService1/hemosLlegadoADestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLlegadaDestino">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarLlegadaDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLlegadaPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLlegadaPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearSolicitudServicio">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearSolicitudServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajePorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarViajePorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajePorConsecutivo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarViajePorConsecutivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarFechaPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarFechaPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLlaveRuta">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarLlaveRuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLlaveRutaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLlaveRutaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEquipoPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearOdometro">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearOdometro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarOdometro">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarOdometro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarOdometroPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarOdometroPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearLecturaBomba">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearLecturaBomba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLecturaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLecturaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLecturaAnterior">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLecturaAnterior" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimaLectura">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUltimaLectura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLecturaBomba">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarLecturaBomba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearCompraDiesel">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearCompraDiesel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimaCompraDiesel">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUltimaCompraDiesel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMargen">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearMargen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarMargen">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarMargen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarMargenPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarMargenPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viajesRealizadosPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/viajesRealizadosPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorIdEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRendimientoPorIdEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarKms">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarKms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarLts">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarLts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarParcialPorIdRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarParcialPorIdRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCostoCombustiblePorFecha">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCostoCombustiblePorFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRecargaCombustible">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRecargaCombustible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarLtsPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarLtsPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecargasCombustiblePorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRecargasCombustiblePorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRendimientoPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="siguienteGrupoRecarga">
+      <soap:operation soapAction="http://tempuri.org/IService1/siguienteGrupoRecarga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarLtsIntPorFechas">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarLtsIntPorFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLtsPorAsignacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLtsPorAsignacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRendimientoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecargasParcialesPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRecargasParcialesPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="borrarRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/borrarRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarContactoPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarContactoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearCotizacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCotizacionPorConsecutivo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCotizacionPorConsecutivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCotizacionPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCotizacionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCotizacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarPersonaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarPersonaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearSolicitudCotizacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearSolicitudCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEmpresaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEmpresaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarPrecioPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarPrecioPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearPrecio">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearPrecio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRemision">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRemision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRemisionPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRemisionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRemisionPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRemisionPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRemision">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRemision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IService1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="crearFacturaOtros">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearFacturaOtros" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarFacturaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarFacturaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCfdiPorIdFactura">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCfdiPorIdFactura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seguimientoVacio">
+      <soap:operation soapAction="http://tempuri.org/IService1/seguimientoVacio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarAspNetUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarAspNetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUsuarioNetPorNombre">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUsuarioNetPorNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarMail">
+      <soap:operation soapAction="http://tempuri.org/IService1/enviarMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarFecha">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarTarifaUnichofer">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarTarifaUnichofer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarTarifaMultichofer">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarTarifaMultichofer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarNominaPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarNominaPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearFecha">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearViatico">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearViatico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarTrayectoPorAsignacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarTrayectoPorAsignacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarTrayectoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarTrayectoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearTrayectoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearTrayectoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarTrayectoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarTrayectoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCajaPorAsignacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCajaPorAsignacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCajaAsignada">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarCajaAsignada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearCajaAsignada">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearCajaAsignada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCajaAsignada">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarCajaAsignada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarOrdenPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarOrdenPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarAsignacionPorOrden">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarAsignacionPorOrden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarAsignacionPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarAsignacionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarEquipoAsignadoPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarEquipoAsignadoPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearNuevaOrden">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearNuevaOrden" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEquipoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearEquipoOperacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearEquipoOperacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEquipoOperacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarEquipoOperacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimoViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUltimoViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecorridoPorIdEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRecorridoPorIdEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRecorrido">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRecorrido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRecorrido">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRecorrido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarRecorridoPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/listarRecorridoPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajeDeRegresoDeGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarViajeDeRegresoDeGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hemosLlegadoADestino">
+      <soap:operation soapAction="http://tempuri.org/IService1/hemosLlegadoADestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLlegadaDestino">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarLlegadaDestino" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLlegadaPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLlegadaPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearSolicitudServicio">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearSolicitudServicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajePorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarViajePorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarViajePorConsecutivo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarViajePorConsecutivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarFechaPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarFechaPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLlaveRuta">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarLlaveRuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLlaveRutaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLlaveRutaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEquipoPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearOdometro">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearOdometro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarOdometro">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarOdometro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarOdometroPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarOdometroPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearLecturaBomba">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearLecturaBomba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLecturaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLecturaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLecturaAnterior">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLecturaAnterior" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimaLectura">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUltimaLectura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarLecturaBomba">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarLecturaBomba" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearCompraDiesel">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearCompraDiesel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarUltimaCompraDiesel">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarUltimaCompraDiesel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearMargen">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearMargen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarMargen">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarMargen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarMargenPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarMargenPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="viajesRealizadosPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/viajesRealizadosPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorIdEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRendimientoPorIdEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarKms">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarKms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarLts">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarLts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarParcialPorIdRendimiento">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarParcialPorIdRendimiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCostoCombustiblePorFecha">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCostoCombustiblePorFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRecargaCombustible">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRecargaCombustible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarLtsPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarLtsPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecargasCombustiblePorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRecargasCombustiblePorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRendimientoPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="siguienteGrupoRecarga">
+      <soap:operation soapAction="http://tempuri.org/IService1/siguienteGrupoRecarga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/eliminarRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="regresarLtsIntPorFechas">
+      <soap:operation soapAction="http://tempuri.org/IService1/regresarLtsIntPorFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEquipoAsignado">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEquipoAsignado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarLtsPorAsignacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarLtsPorAsignacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRendimientoPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRendimientoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRecargasParcialesPorGrupo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRecargasParcialesPorGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="borrarRecargaParcial">
+      <soap:operation soapAction="http://tempuri.org/IService1/borrarRecargaParcial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarContactoPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarContactoPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearCotizacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCotizacionPorConsecutivo">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCotizacionPorConsecutivo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarCotizacionPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarCotizacionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarCotizacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarPersonaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarPersonaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearSolicitudCotizacion">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearSolicitudCotizacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarEmpresaPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarEmpresaPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarPrecioPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarPrecioPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearPrecio">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearPrecio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="crearRemision">
+      <soap:operation soapAction="http://tempuri.org/IService1/crearRemision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRemisionPorId">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRemisionPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarRemisionPorIdViaje">
+      <soap:operation soapAction="http://tempuri.org/IService1/buscarRemisionPorIdViaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="actualizarRemision">
+      <soap:operation soapAction="http://tempuri.org/IService1/actualizarRemision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://tsewservice.azurewebsites.net/Service1.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IService1" binding="tns:BasicHttpsBinding_IService1">
+      <soap:address location="https://tsewservice.azurewebsites.net/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

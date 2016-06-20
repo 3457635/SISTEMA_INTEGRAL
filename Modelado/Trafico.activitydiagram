@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" dslVersion="1.0.0.0" Id="3701198e-711f-429a-be91-689291578d94" name="Trafico" linkedPackageId="1ed80824-ec53-4c94-9a73-87c1d4771019" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="d4295d1f-ab36-4655-b46f-107638c1fe5f">
+      <elementDefinition Id="83495607-2b69-4e54-86d4-88ad54c585cb" />
+      <body>Entrada</body>
+    </comment>
+    <comment Id="eb702997-73a5-4ef5-8295-aabb836ac4cb">
+      <elementDefinition Id="64daa3cd-fac8-4be0-bc26-017d5f71858c" />
+      <body>Salida</body>
+    </comment>
+    <comment Id="8455cb6b-58b4-48e4-96ba-db539f1f0f39">
+      <elementDefinition Id="9e6f8dae-b976-4b0a-8214-16bfd1164065" />
+      <body>Proceso</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="1b56be12-4d61-42d9-90be-286d86a49fbd">
+      <profileInstance Id="21dca452-3be2-415f-b989-54f52c943c3d" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="589ebe76-1357-4f58-ac75-b13555e7d158">
+      <profileInstance Id="7d0a93bb-ef52-4072-bcca-206d8e04340c" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="23430daa-2944-4d3a-8f4c-e5f8f24ce3ec" name="Trafico" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="4218ffd2-6870-40f9-bfbb-c0d43a214dd0" />
+        <nodes>
+          <opaqueAction Id="854ee85b-4217-4f62-999a-067d534c90e2" name="Solicitud de Servicio" isLeaf="false">
+            <elementDefinition Id="756215f3-d729-448b-ba0a-dda0a2ea45ee" />
+            <flowNodeTargets>
+              <controlFlow Id="54f4460a-3dba-4abf-8cd1-cb50668aca77" isLeaf="false">
+                <opaqueActionMoniker Id="6fbacfab-f0e1-4d24-be1f-70b2c2706c39" LastKnownName="Crea Orden " />
+                <elementDefinition Id="06b38f3c-5df7-438d-a688-e588efd3170f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="6fbacfab-f0e1-4d24-be1f-70b2c2706c39" name="Crea Orden " isLeaf="false">
+            <elementDefinition Id="7f81afed-e366-4e06-93a9-c5172c92257d" />
+            <flowNodeTargets>
+              <controlFlow Id="5c2f18c2-c1f4-408c-bb3e-e3455f79d316" isLeaf="false">
+                <opaqueActionMoniker Id="355e4dac-83b5-4c14-bfa7-c59e6862c94d" LastKnownName="Autoriza Orden" />
+                <elementDefinition Id="8a2d4823-09f3-4671-b6ee-438e0da31bef" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="355e4dac-83b5-4c14-bfa7-c59e6862c94d" name="Autoriza Orden" isLeaf="false">
+            <elementDefinition Id="345c518e-5802-4a34-be74-47795c1faf41" />
+            <flowNodeTargets>
+              <controlFlow Id="125d054e-555b-40a4-aafb-a49379f83584" isLeaf="false">
+                <opaqueActionMoniker Id="a62a068b-c015-4adc-9b7c-bdd87e99ef54" LastKnownName="Asigna Recursos" />
+                <elementDefinition Id="228c7337-bb53-4a83-acda-04e8836e038e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="a62a068b-c015-4adc-9b7c-bdd87e99ef54" name="Asigna Recursos" isLeaf="false">
+            <elementDefinition Id="225e00ee-3dac-49ff-812b-2d8baadd055c" />
+            <flowNodeTargets>
+              <controlFlow Id="df7e16ef-3c9d-4fa0-891b-3c14c418acdd" isLeaf="false">
+                <opaqueActionMoniker Id="8d84a22e-60b7-44f4-b5b0-cf50ceae8047" LastKnownName="Orden de Servicio" />
+                <elementDefinition Id="14e1a3a6-cc67-4cd8-9f21-31430aac833f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="8d84a22e-60b7-44f4-b5b0-cf50ceae8047" name="Orden de Servicio" isLeaf="false">
+            <elementDefinition Id="5f77af95-2615-4d10-a5c0-9861a753f7f5" />
+          </opaqueAction>
+          <forkNode Id="bf3f9a0d-b59a-45a8-b43a-a005a712ce5e" name="Fork1" isLeaf="false">
+            <elementDefinition Id="64cc14bc-7c2f-422e-8de3-953604d14287" />
+          </forkNode>
+          <opaqueAction Id="c221c1a4-067c-4773-9725-028d3ddde013" name="Asignacion de Gastos" isLeaf="false">
+            <elementDefinition Id="04352c43-885b-4428-8715-e6d7446b2281" />
+          </opaqueAction>
+          <opaqueAction Id="243d1031-3efe-400f-88c4-bfccb341f42f" name="Action1" isLeaf="false">
+            <elementDefinition Id="4440029d-8b4f-454e-89af-2ee1f7a19f76" />
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="1ed80824-ec53-4c94-9a73-87c1d4771019" name="Modelado">
+    <elementDefinition Id="f8cc5de8-42b7-4136-b831-087b8d9ff082" />
+  </package>
+</activityRootModel>

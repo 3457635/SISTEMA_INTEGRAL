@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner"
+  dslVersion="1.0.0.0"
+  Id="f8cc5de8-42b7-4136-b831-087b8d9ff082"
+  name="Modelado" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <ownedCommentsInternal>
+    <comment
+      Id="83495607-2b69-4e54-86d4-88ad54c585cb">
+      <body>Entrada</body>
+    </comment>
+    <comment
+      Id="64daa3cd-fac8-4be0-bc26-017d5f71858c">
+      <body>Salida</body>
+    </comment>
+    <comment
+      Id="9e6f8dae-b976-4b0a-8214-16bfd1164065">
+      <body>Proceso</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="4218ffd2-6870-40f9-bfbb-c0d43a214dd0"
+        name="Trafico"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <opaqueAction
+            Id="756215f3-d729-448b-ba0a-dda0a2ea45ee"
+            name="Solicitud de Servicio"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="06b38f3c-5df7-438d-a688-e588efd3170f"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="7f81afed-e366-4e06-93a9-c5172c92257d"
+                  LastKnownName="Crea Orden "
+                  LastKnownLocation="Modelado.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="7f81afed-e366-4e06-93a9-c5172c92257d"
+            name="Crea Orden "
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8a2d4823-09f3-4671-b6ee-438e0da31bef"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="345c518e-5802-4a34-be74-47795c1faf41"
+                  LastKnownName="Autoriza Orden"
+                  LastKnownLocation="Modelado.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="345c518e-5802-4a34-be74-47795c1faf41"
+            name="Autoriza Orden"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="228c7337-bb53-4a83-acda-04e8836e038e"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="225e00ee-3dac-49ff-812b-2d8baadd055c"
+                  LastKnownName="Asigna Recursos"
+                  LastKnownLocation="Modelado.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="225e00ee-3dac-49ff-812b-2d8baadd055c"
+            name="Asigna Recursos"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="14e1a3a6-cc67-4cd8-9f21-31430aac833f"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="5f77af95-2615-4d10-a5c0-9861a753f7f5"
+                  LastKnownName="Orden de Servicio"
+                  LastKnownLocation="Modelado.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="5f77af95-2615-4d10-a5c0-9861a753f7f5"
+            name="Orden de Servicio"
+            isLeaf="false" />
+          <forkNode
+            Id="64cc14bc-7c2f-422e-8de3-953604d14287"
+            name="Fork1"
+            isLeaf="false" />
+          <opaqueAction
+            Id="04352c43-885b-4428-8715-e6d7446b2281"
+            name="Asignacion de Gastos"
+            isLeaf="false" />
+          <opaqueAction
+            Id="4440029d-8b4f-454e-89af-2ee1f7a19f76"
+            name="Action1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

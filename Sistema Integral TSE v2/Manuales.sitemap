@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="" title="Manuales"  description="">
+        <siteMapNode url="" title="Servicio al Cliente"  description="" >
+          <siteMapNode url="~/Manuales/M1.01Cotizador.pptx" title="Cotizaciones" description="Creación y Administración de Cotizaciones."/>          
+        </siteMapNode>
+        <siteMapNode url="" title="Sup.Trafico"  description="">
+          <siteMapNode url="~/Manuales/M1.02OrdenServicio.pptx" title="Ordenes de Servicio y Asignación de Recursos" description="Ordenes de Servicio y Asignación de Recursos."/>
+          <siteMapNode url="~/Manuales/M1.05RentaCajas.pptx" title="Renta de Cajas" description="Creación de orden y cierre de renta de cajas."/>
+        </siteMapNode>
+      <siteMapNode url="" title="Inspector"  description="">
+        <siteMapNode url="~/Manuales/M1.03SalidaVehiculos.pptx" title="Evaluación Viaje Chofer, salida y cierre de viajes" description="Evaluación Viaje Chofer, salida y cierre de viajes."/>
+        <siteMapNode url="~/Manuales/M1.04Seguimiento.pptx" title="Seguimiento de Viaje" description="Consulta y Registro de Seguimiento de Viaje."/>
+      </siteMapNode>
+      <siteMapNode url="" title="Facturacion"  description="">
+        <siteMapNode url="~/Manuales/M1.11Facturacion.pptx" title="Facturacion" description="Creacion de facturas."/>
+
+      </siteMapNode>
+      <siteMapNode url="" title="Cobranza"  description="">
+        <siteMapNode url="~/Manuales/M1.06RegistroIngresos.pptx" title="Ingresos" description="Consultas y registro de ingresos."/>
+      </siteMapNode>
+      <siteMapNode url="" title="Mantenimiento"  description="">
+        <siteMapNode url="~/Manuales/M1.07Mantenimiento.pptx" title="Servicios Preventivos y Correctivos" description="Registro de reportes preventivos y correctivos."/>
+      </siteMapNode>
+      <siteMapNode url="" title="Reportes"  description="">
+        <siteMapNode url="~/Manuales/M1.08ReporteOrdenes.pptx" title="Reporte de Ordenes" description="Consulta de Ordenes de Servicio registradas."/>
+        <siteMapNode url="~/Manuales/M1.09PreciosCombustible.pptx" title="Precios Combustible" description="Registro y consulta de precios de combustible."/>
+        <siteMapNode url="~/Manuales/M1.13ReporteViajesPorChofer.pptx" title="Viajes Por Chofer" description="Consulta de viajes realizados por chofer."/>
+      </siteMapNode>
+      <siteMapNode url="" title="Auditoria Diesel"  description="">
+        <siteMapNode url="~/Manuales/M1.10ReporteRecargas.pptx" title="Reporte de Recargas" description="Consulta de recargas de combustible por unidad."/>
+      </siteMapNode>
+      <siteMapNode url="" title="Costeo de Viajes"  description="">
+        <siteMapNode url="~/Manuales/M1.12Margen.pptx" title="Reporte de Costeo" description="Reporte de margen de viajes."/>
+      </siteMapNode>
+    </siteMapNode>
+</siteMap>

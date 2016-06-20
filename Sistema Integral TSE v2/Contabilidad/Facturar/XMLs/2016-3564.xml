@@ -1,0 +1,23 @@
+<cfdi:Comprobante version="3.2" serie="2016" folio="3564" fecha="2016-04-14T05:26:05" sello="YZq/uSKbAmJnKG7PWZjpiJIyWCqtD+lL4gJEXTpctj+n6U9NoB/IKiBAtUcoXf0PKY3hH1A5M7z1o/ZWGurGrirQRLgVT25FSnIoQfZxsNLYcmqtedUai8i0h2rthRTvrwpSxCxcwd7+zgTvWexPH+LzQ9Gd6cixf3y88S+mxcs=" formaDePago="Pago en una sola exhibición." noCertificado="00001000000301306761" certificado="MIIEcTCCA1mgAwIBAgIUMDAwMDEwMDAwMDAzMDEzMDY3NjEwDQYJKoZIhvcNAQEFBQAwggGKMTgwNgYDVQQDDC9BLkMuIGRlbCBTZXJ2aWNpbyBkZSBBZG1pbmlzdHJhY2nDs24gVHJpYnV0YXJpYTEvMC0GA1UECgwmU2VydmljaW8gZGUgQWRtaW5pc3RyYWNpw7NuIFRyaWJ1dGFyaWExODA2BgNVBAsML0FkbWluaXN0cmFjacOzbiBkZSBTZWd1cmlkYWQgZGUgbGEgSW5mb3JtYWNpw7NuMR8wHQYJKoZIhvcNAQkBFhBhY29kc0BzYXQuZ29iLm14MSYwJAYDVQQJDB1Bdi4gSGlkYWxnbyA3NywgQ29sLiBHdWVycmVybzEOMAwGA1UEEQwFMDYzMDAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBEaXN0cml0byBGZWRlcmFsMRQwEgYDVQQHDAtDdWF1aHTDqW1vYzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMTUwMwYJKoZIhvcNAQkCDCZSZXNwb25zYWJsZTogQ2xhdWRpYSBDb3ZhcnJ1YmlhcyBPY2hvYTAeFw0xMzExMTMyMzEyMDVaFw0xNzExMTMyMzEyMDVaMIG9MSAwHgYDVQQDExdMVUlTIENBUkxPUyBDSEFWRVogTE9ZQTEgMB4GA1UEKRMXTFVJUyBDQVJMT1MgQ0hBVkVaIExPWUExIDAeBgNVBAoTF0xVSVMgQ0FSTE9TIENIQVZFWiBMT1lBMRYwFAYDVQQtEw1DQUxMNjMwOTIxVjY4MRswGQYDVQQFExJDQUxMNjMwOTIxSENISFlTMDgxIDAeBgNVBAsTF0x1aXMgQ2FybG9zIENoYXZleiBMb3lhMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCCIPj1irS6GYJ26etLmh/s0fnRgLBwlxcDoWbhN8q/RnBYzJFsWGwvC0ojKR9P2WC611g4DJydEpFMYFgRV/pH3bkpanC74fFKP2b4EEzkeUwYgQdVXyi8UD26vUoh7HTymV9bGmdu70aRcWdfC0T65c/It/XnpDZdRhg67wXogQIDAQABox0wGzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQEAwIGwDANBgkqhkiG9w0BAQUFAAOCAQEApiMa5OzIizPpqapQS0nbXRjNu3glcqwBhPMIaOcrXt90648qR/Y0I3STCqI5fxEM87SfjDRSAvSfzVIeOh8KCxsSpO4yb+Ig1klBF8v/l7n+FMXQIQrqfac74eYpnwaua8uMT2lXmOEirjhU4qk17KvKD/l5OgnirqcoP19tO8PvrOwqzDB/pcXuFisDL0Kh8DYI5PjR1Gxglrg1ijl0p8aUskXzR+wCwgD9KPLD0cyRZ7qcOkzC6SWRB/3hwdRmIC6XPstc76hnB1BJjl/l4sh0uvCVR2VOuEX9SUmVt8oCymSTCWN3eEbHABjjME7IkEEREQ6RRA8+XpaRaKJing==" subTotal="388304.53" Moneda="Pesos" total="434901.07" tipoDeComprobante="ingreso" metodoDePago="Transferencia" LugarExpedicion="México, Chihuahua, Chih." xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <cfdi:Emisor rfc="CALL630921V68" nombre="Luis Carlos Chávez Loya">
+    <cfdi:DomicilioFiscal calle="Av. Octavio Paz" noExterior="170" colonia="Complejo Industrial Chihuahua" municipio="Chihuahua" estado="Chihuahua" pais="México" codigoPostal="31109" />
+    <cfdi:RegimenFiscal Regimen="Régimen general de ley personas físicas" />
+  </cfdi:Emisor>
+  <cfdi:Receptor rfc="GSE720216JJ6" nombre="GENERAL DE SEGUROS SAB">
+    <cfdi:Domicilio calle="AV. PATRIOTISMO" noExterior="266" colonia="SAN PEDRO DE LOS PINOS " municipio="DELEGACION BENITO JUAREZ" estado="DISTRITO FEDERAL" pais="MÉXICO" codigoPostal="03800" />
+  </cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:Concepto cantidad="1" unidad="No Aplica" descripcion="INDEMNIZACIÓN DE VEHÍCULO POR COLISIÓN:&#xD;&#xA;MARCA: FREIGHTLINER&#xD;&#xA;TIPO: M2 33K&#xD;&#xA;MODELO: 2013&#xD;&#xA;SERIE: 3ALADXCS8DDBX9023&#xD;&#xA;MOTOR: 90291900961000" valorUnitario="388304.53" importe="388304.53" />
+  </cfdi:Conceptos>
+  <cfdi:Impuestos>
+    <cfdi:Retenciones>
+      <cfdi:Retencion impuesto="IVA" importe="15532.18" />
+    </cfdi:Retenciones>
+    <cfdi:Traslados>
+      <cfdi:Traslado impuesto="IVA" tasa="16" importe="62128.72" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital version="1.0" UUID="da789a7f-fdd0-4697-b64b-81af174a5cf6" FechaTimbrado="2016-04-14T13:26:26" selloCFD="YZq/uSKbAmJnKG7PWZjpiJIyWCqtD+lL4gJEXTpctj+n6U9NoB/IKiBAtUcoXf0PKY3hH1A5M7z1o/ZWGurGrirQRLgVT25FSnIoQfZxsNLYcmqtedUai8i0h2rthRTvrwpSxCxcwd7+zgTvWexPH+LzQ9Gd6cixf3y88S+mxcs=" noCertificadoSAT="00001000000301251152" selloSAT="A5ReAvMwKGL0XK+cb0A2eBcn5XK3xnhgQBc4Kj57in+K8/wEUq0kJUUI49GDIaQezJD/dijLsYbDPp0dRjVA3JcwDaMUfOEEFxXIMHYD0yGB8yDe1Zt1xcr/5LsFSx+Er3IeQPqTr3/Oo/GwTdYt1uWzC86kN8k26S8SYy14YAg=" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/TimbreFiscalDigital/TimbreFiscalDigital.xsd" xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>

@@ -1,0 +1,1167 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="tse_erp" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=rtbygfdtxb.database.windows.net;Initial Catalog=tse_erp;User ID=omarifr" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="tse_erpConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="fechas">
+    <Type Name="fecha">
+      <Column Name="id_fecha" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="tipo_fecha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="fecha_fechas_viaje" Member="fechas_viajes" ThisKey="id_fecha" OtherKey="id_fecha" Type="fechas_viaje" />
+      <Association Name="fecha_fechas_ordene" Member="fechas_ordenes" ThisKey="id_fecha" OtherKey="id_fecha" Type="fechas_ordene" />
+      <Association Name="fecha_fechas_facturacion" Member="fechas_facturacions" ThisKey="id_fecha" OtherKey="id_fecha" Type="fechas_facturacion" />
+      <Association Name="fecha_precio" Member="precios" ThisKey="id_fecha" OtherKey="id_fecha" Type="precio" />
+    </Type>
+  </Table>
+  <Table Name="fechas_viaje" Member="fechas_viajes">
+    <Type Name="fechas_viaje">
+      <Column Name="id_fecha_viaje" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_fecha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_viaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="fecha_fechas_viaje" Member="fecha" ThisKey="id_fecha" OtherKey="id_fecha" Type="fecha" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="viaje_fechas_viaje" Member="viaje" ThisKey="id_viaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="fechas_ordenes">
+    <Type Name="fechas_ordene">
+      <Column Name="id_fecha_orden" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_orden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_fecha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="fecha_fechas_ordene" Member="fecha" ThisKey="id_fecha" OtherKey="id_fecha" Type="fecha" IsForeignKey="true" />
+      <Association Name="Ordene_fechas_ordene" Member="Ordene" ThisKey="id_orden" OtherKey="id_orden" Type="Ordene" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="empleados">
+    <Type Name="empleado">
+      <Column Name="id_empleado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_persona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_estadocivil" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_puesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="empleado_equipo_asignado" Member="equipo_asignados" ThisKey="id_empleado" OtherKey="idEmpleado" Type="equipo_asignado" />
+      <Association Name="persona_empleado" Member="persona" ThisKey="id_persona" OtherKey="id_persona" Type="persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="personas">
+    <Type Name="persona">
+      <Column Name="id_persona" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="primer_nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="segundo_nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="apellido_paterno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="apellido_materno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="persona_empleado" Member="empleados" ThisKey="id_persona" OtherKey="id_persona" Type="empleado" />
+      <Association Name="persona_contacto" Member="contactos" ThisKey="id_persona" OtherKey="id_persona" Type="contacto" />
+      <Association Name="persona_comunicacion" Member="comunicacions" ThisKey="id_persona" OtherKey="id_persona" Type="comunicacion" />
+    </Type>
+  </Table>
+  <Table Name="conta_saldos">
+    <Type Name="conta_saldo">
+      <Column Name="id_saldo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="saldo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id_cuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="tipos_monedas">
+    <Type Name="tipos_moneda">
+      <Column Name="id_moneda" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="moneda" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tipos_moneda_precio" Member="precios" ThisKey="id_moneda" OtherKey="id_moneda" Type="precio" />
+      <Association Name="tipos_moneda_precios_caja" Member="precios_cajas" ThisKey="id_moneda" OtherKey="id_moneda" Type="precios_caja" />
+    </Type>
+  </Table>
+  <Table Name="tipo_equipos">
+    <Type Name="tipo_equipo">
+      <Column Name="id_tipo_equipo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="equipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tipo_equipo_tarifas_chofere" Member="tarifas_choferes" ThisKey="id_tipo_equipo" OtherKey="id_tipo_vehiculo" Type="tarifas_chofere" />
+      <Association Name="tipo_equipo_tarifas_trayecto" Member="tarifas_trayectos" ThisKey="id_tipo_equipo" OtherKey="id_tipo_vehiculo" Type="tarifas_trayecto" />
+      <Association Name="tipo_equipo_tarifas_trayecto1" Member="tarifas_trayectos1" ThisKey="id_tipo_equipo" OtherKey="id_tipo_vehiculo" Type="tarifas_trayecto" />
+      <Association Name="tipo_equipo_precio" Member="precios" ThisKey="id_tipo_equipo" OtherKey="id_tipo_recurso" Type="precio" />
+      <Association Name="tipo_equipo_equipo_operacion" Member="equipo_operacions" ThisKey="id_tipo_equipo" OtherKey="id_tipo_equipo" Type="equipo_operacion" />
+    </Type>
+  </Table>
+  <Table Name="comprobantes_fiscales">
+    <Type Name="comprobantes_fiscale">
+      <Column Name="folio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tipo_comprobante" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_gasto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_comprobante" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="gasto_comprobantes_fiscale" Member="gasto" ThisKey="id_gasto" OtherKey="id_gasto" Type="gasto" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="formas_pago" Member="formas_pagos">
+    <Type Name="formas_pago">
+      <Column Name="id_forma_pago" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="referencia" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="forma_pago" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="formas_pago_aplicacion_movimiento" Member="aplicacion_movimientos" ThisKey="id_forma_pago" OtherKey="id_forma_pago" Type="aplicacion_movimiento" />
+      <Association Name="formas_pago_gasto" Member="gastos" ThisKey="id_forma_pago" OtherKey="id_forma_pago" Type="gasto" />
+    </Type>
+  </Table>
+  <Table Name="conta_Movimientos">
+    <Type Name="conta_Movimiento">
+      <Column Name="id_movimiento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="iva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="neto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="referencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="conta_Movimiento_aplicacion_movimiento" Member="aplicacion_movimientos" ThisKey="id_movimiento" OtherKey="id_movimiento" Type="aplicacion_movimiento" />
+    </Type>
+  </Table>
+  <Table Name="tipos_movimientos">
+    <Type Name="tipos_movimiento">
+      <Column Name="id_tipo_movimiento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tipo_movimiento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tipos_movimiento_aplicacion_movimiento" Member="aplicacion_movimientos" ThisKey="id_tipo_movimiento" OtherKey="id_tipo_movimiento" Type="aplicacion_movimiento" />
+    </Type>
+  </Table>
+  <Table Name="aplicacion_movimiento" Member="aplicacion_movimientos">
+    <Type Name="aplicacion_movimiento">
+      <Column Name="id_aplicacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_movimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_cuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_programacion" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="fecha_ejecucion" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="id_tipo_movimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_forma_pago" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="formas_pago_aplicacion_movimiento" Member="formas_pago" ThisKey="id_forma_pago" OtherKey="id_forma_pago" Type="formas_pago" IsForeignKey="true" />
+      <Association Name="tipos_movimiento_aplicacion_movimiento" Member="tipos_movimiento" ThisKey="id_tipo_movimiento" OtherKey="id_tipo_movimiento" Type="tipos_movimiento" IsForeignKey="true" />
+      <Association Name="conta_Movimiento_aplicacion_movimiento" Member="conta_Movimiento" ThisKey="id_movimiento" OtherKey="id_movimiento" Type="conta_Movimiento" IsForeignKey="true" />
+      <Association Name="conta_cuenta_aplicacion_movimiento" Member="conta_cuenta" ThisKey="id_cuenta" OtherKey="id_cuenta" Type="conta_cuenta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="facturacion" Member="facturacions">
+    <Type Name="facturacion">
+      <Column Name="id_viaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_facturacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="factura_facturacion" Member="factura" ThisKey="id_factura" OtherKey="id_factura" Type="factura" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="viaje_facturacion" Member="viaje" ThisKey="id_viaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="marcas">
+    <Type Name="marca">
+      <Column Name="id_marca" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="marca" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="marca_equipo_operacion" Member="equipo_operacions" ThisKey="id_marca" OtherKey="id_marca" Type="equipo_operacion" />
+      <Association Name="marca_Caja" Member="Cajas" ThisKey="id_marca" OtherKey="marcaId" Type="Caja" />
+    </Type>
+  </Table>
+  <Table Name="contactos">
+    <Type Name="contacto">
+      <Column Name="id_contacto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_persona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="contacto_notificaciones_seguimiento" Member="notificaciones_seguimientos" ThisKey="id_contacto" OtherKey="id_contacto" Type="notificaciones_seguimiento" />
+      <Association Name="contacto_cotizacione" Member="cotizaciones" ThisKey="id_contacto" OtherKey="id_contacto" Type="cotizacione" />
+      <Association Name="contacto_viaje" Member="viajes" ThisKey="id_contacto" OtherKey="id_contacto" Type="viaje" />
+      <Association Name="persona_contacto" Member="persona" ThisKey="id_persona" OtherKey="id_persona" Type="persona" IsForeignKey="true" />
+      <Association Name="empresa_contacto" Member="empresa" ThisKey="id_empresa" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="fechas_facturacion" Member="fechas_facturacions">
+    <Type Name="fechas_facturacion">
+      <Column Name="id_fecha_facturacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_fecha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="fecha_fechas_facturacion" Member="fecha" ThisKey="id_fecha" OtherKey="id_fecha" Type="fecha" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="factura_fechas_facturacion" Member="factura" ThisKey="id_factura" OtherKey="id_factura" Type="factura" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="lote_aprobacion" Member="lote_aprobacions">
+    <Type Name="lote_aprobacion">
+      <Column Name="id_lote" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lote" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="lote_aprobacion_gasto" Member="gastos" ThisKey="id_lote" OtherKey="id_lote" Type="gasto" />
+    </Type>
+  </Table>
+  <Table Name="recolecciones">
+    <Type Name="recoleccione">
+      <Column Name="id_recoleccion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="recolecciones" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_viaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="viaje_recoleccione" Member="viaje" ThisKey="id_viaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tipo_cambio" Member="tipo_cambios">
+    <Type Name="tipo_cambio">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipo_cambio" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="id_factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="factura_tipo_cambio" Member="factura" ThisKey="id_factura" OtherKey="id_factura" Type="factura" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="conta_cuentas">
+    <Type Name="conta_cuenta">
+      <Column Name="id_padre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cuenta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_cuenta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="clave" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rango" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="conta_cuenta_aplicacion_movimiento" Member="aplicacion_movimientos" ThisKey="id_cuenta" OtherKey="id_cuenta" Type="aplicacion_movimiento" />
+      <Association Name="conta_cuenta_conta_cuenta" Member="conta_cuentas" ThisKey="id_cuenta" OtherKey="id_padre" Type="conta_cuenta" />
+      <Association Name="conta_cuenta_proveedores_pago" Member="proveedores_pagos" ThisKey="id_cuenta" OtherKey="id_cuenta" Type="proveedores_pago" />
+      <Association Name="conta_cuenta_conta_cuenta" Member="conta_cuenta" ThisKey="id_padre" OtherKey="id_cuenta" Type="conta_cuenta" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="facturas_cajas">
+    <Type Name="facturas_caja">
+      <Column Name="id_servicio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_renta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="inicio" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="orden_caja_facturas_caja" Member="orden_caja" ThisKey="id_renta" OtherKey="id_renta" Type="orden_caja" IsForeignKey="true" />
+      <Association Name="factura_facturas_caja" Member="factura" ThisKey="id_factura" OtherKey="id_factura" Type="factura" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="orden_cajas">
+    <Type Name="orden_caja">
+      <Column Name="id_renta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_precio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Inicio" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Fin" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ano" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="consecutivo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="orden_caja_facturas_caja" Member="facturas_cajas" ThisKey="id_renta" OtherKey="id_renta" Type="facturas_caja" />
+      <Association Name="precios_caja_orden_caja" Member="precios_caja" ThisKey="id_precio" OtherKey="id_precio_caja" Type="precios_caja" IsForeignKey="true" />
+      <Association Name="equipo_operacion_orden_caja" Member="equipo_operacion" ThisKey="id_equipo" OtherKey="id_equipo" Type="equipo_operacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="recargas_internas">
+    <Type Name="recargas_interna">
+      <Column Name="id_recarga_interna" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_recarga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_orden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Ordene_recargas_interna" Member="Ordene" ThisKey="id_orden" OtherKey="id_orden" Type="Ordene" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="recargas_combustible_recargas_interna" Member="recargas_combustible" ThisKey="id_recarga" OtherKey="id_recarga" Type="recargas_combustible" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="recargas_externas">
+    <Type Name="recargas_externa">
+      <Column Name="id_recarga_externa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_recarga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_gasto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="gasto_recargas_externa" Member="gasto" ThisKey="id_gasto" OtherKey="id_gasto" Type="gasto" IsForeignKey="true" />
+      <Association Name="recargas_combustible_recargas_externa" Member="recargas_combustible" ThisKey="id_recarga" OtherKey="id_recarga" Type="recargas_combustible" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="lugares_recarga" Member="lugares_recargas">
+    <Type Name="lugares_recarga">
+      <Column Name="id_lugar" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="lugar" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="lugares_recarga_recargas_combustible" Member="recargas_combustibles" ThisKey="id_lugar" OtherKey="id_lugar" Type="recargas_combustible" />
+    </Type>
+  </Table>
+  <Table Name="liquidaciones">
+    <Type Name="liquidacione">
+      <Column Name="id_liquidacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_orden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_gasto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Ordene_liquidacione" Member="Ordene" ThisKey="id_orden" OtherKey="id_orden" Type="Ordene" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="gasto_liquidacione" Member="gasto" ThisKey="id_gasto" OtherKey="id_gasto" Type="gasto" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="seguimiento" Member="seguimientos">
+    <Type Name="seguimiento">
+      <Column Name="observacion" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="inspector" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_viaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_seguimiento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha_de_seguimiento" Type="System.DateTimeOffset" DbType="DateTime" CanBeNull="true" />
+      <Association Name="seguimiento_puntos_predeterminado" Member="puntos_predeterminados" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="puntos_predeterminado" />
+      <Association Name="seguimiento_arrivo" Member="arrivos" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="arrivo" />
+      <Association Name="seguimiento_Pausa" Member="Pausas" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="Pausa" />
+      <Association Name="seguimiento_hora" Member="horas" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="hora" />
+      <Association Name="viaje_seguimiento" Member="viaje" ThisKey="id_viaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="puntos_predeterminados">
+    <Type Name="puntos_predeterminado">
+      <Column Name="id_punto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_ubicacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_seguimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="seguimiento_puntos_predeterminado" Member="seguimiento" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="seguimiento" IsForeignKey="true" />
+      <Association Name="ubicacione_puntos_predeterminado" Member="ubicacione" ThisKey="id_ubicacion" OtherKey="id_principal" Type="ubicacione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tipos_pausas">
+    <Type Name="tipos_pausa">
+      <Column Name="id_tipo_pausa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pausa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tipos_pausa_Pausa" Member="Pausas" ThisKey="id_tipo_pausa" OtherKey="tipo_pausa" Type="Pausa" />
+    </Type>
+  </Table>
+  <Table Name="arrivos">
+    <Type Name="arrivo">
+      <Column Name="id_arrivo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_seguimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_detalle" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="seguimiento_arrivo" Member="seguimiento" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="seguimiento" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="detalle_arrivo_arrivo" Member="detalle_arrivo" ThisKey="id_detalle" OtherKey="id_detalle" Type="detalle_arrivo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Pausas">
+    <Type Name="Pausa">
+      <Column Name="id_pausa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipo_pausa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_seguimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="seguimiento_Pausa" Member="seguimiento" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="seguimiento" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="tipos_pausa_Pausa" Member="tipos_pausa" ThisKey="tipo_pausa" OtherKey="id_tipo_pausa" Type="tipos_pausa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="horas">
+    <Type Name="hora">
+      <Column Name="id_hora" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="id_seguimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="llegada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="seguimiento_hora" Member="seguimiento" ThisKey="id_seguimiento" OtherKey="id_seguimiento" Type="seguimiento" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="variacion_precio" Member="variacion_precios">
+    <Type Name="variacion_precio">
+      <Column Name="id_precio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="descuento" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id_relacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="precio_variacion_precio" Member="precio" ThisKey="id_relacion" OtherKey="id_relacion" Type="precio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="detalle_arrivos">
+    <Type Name="detalle_arrivo">
+      <Column Name="id_detalle" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_ubicacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="detalle_arrivo_arrivo" Member="arrivos" ThisKey="id_detalle" OtherKey="id_detalle" Type="arrivo" />
+      <Association Name="detalle_arrivo_llegadaDestino" Member="llegadaDestinos" ThisKey="id_detalle" OtherKey="idArrivo" Type="llegadaDestino" />
+      <Association Name="ubicacione_detalle_arrivo" Member="ubicacione" ThisKey="id_ubicacion" OtherKey="id_principal" Type="ubicacione" IsForeignKey="true" />
+      <Association Name="empresa_detalle_arrivo" Member="empresa" ThisKey="id_empresa" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="notificaciones_seguimiento" Member="notificaciones_seguimientos">
+    <Type Name="notificaciones_seguimiento">
+      <Column Name="id_notificacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_contacto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="contacto_notificaciones_seguimiento" Member="contacto" ThisKey="id_contacto" OtherKey="id_contacto" Type="contacto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="comunicacion" Member="comunicacions">
+    <Type Name="comunicacion">
+      <Column Name="id_comunicacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="numero" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tipo_comunicacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_persona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="persona_comunicacion" Member="persona" ThisKey="id_persona" OtherKey="id_persona" Type="persona" IsForeignKey="true" />
+      <Association Name="tipo_comunicacion_comunicacion" Member="tipo_comunicacion1" ThisKey="tipo_comunicacion" OtherKey="id_tipo_comunicacion" Type="tipo_comunicacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tipo_comunicacion" Member="tipo_comunicacions">
+    <Type Name="tipo_comunicacion">
+      <Column Name="id_tipo_comunicacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tipo_comunicacion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tipo_comunicacion_comunicacion" Member="comunicacions" ThisKey="id_tipo_comunicacion" OtherKey="tipo_comunicacion" Type="comunicacion" />
+    </Type>
+  </Table>
+  <Table Name="llave_rutas">
+    <Type Name="llave_ruta">
+      <Column Name="id_ruta" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ruta" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="redondo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="llave_ruta_ruta" Member="rutas" ThisKey="id_ruta" OtherKey="id_ruta" Type="ruta" />
+      <Association Name="llave_ruta_tarifas_chofere" Member="tarifas_choferes" ThisKey="id_ruta" OtherKey="id_ruta" Type="tarifas_chofere" />
+      <Association Name="llave_ruta_trayecto_ruta" Member="trayecto_rutas" ThisKey="id_ruta" OtherKey="id_ruta" Type="trayecto_ruta" />
+      <Association Name="llave_ruta_precio" Member="precios" ThisKey="id_ruta" OtherKey="id_ruta" Type="precio" />
+    </Type>
+  </Table>
+  <Table Name="rutas">
+    <Type Name="ruta">
+      <Column Name="id_principal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_ubicacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_arrivo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_ruta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="secuencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="llave_ruta_ruta" Member="llave_ruta" ThisKey="id_ruta" OtherKey="id_ruta" Type="llave_ruta" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="ubicacione_ruta" Member="ubicacione" ThisKey="id_ubicacion" OtherKey="id_principal" Type="ubicacione" IsForeignKey="true" />
+      <Association Name="tipos_arrivo_ruta" Member="tipos_arrivo" ThisKey="id_tipo_arrivo" OtherKey="id_tipo_arrivo" Type="tipos_arrivo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="ubicaciones">
+    <Type Name="ubicacione">
+      <Column Name="id_principal" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ubicacion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="tiempo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_ubicacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_ubicacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="notificacion_cliente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="ubicacione_puntos_predeterminado" Member="puntos_predeterminados" ThisKey="id_principal" OtherKey="id_ubicacion" Type="puntos_predeterminado" />
+      <Association Name="ubicacione_detalle_arrivo" Member="detalle_arrivos" ThisKey="id_principal" OtherKey="id_ubicacion" Type="detalle_arrivo" />
+      <Association Name="ubicacione_ruta" Member="rutas" ThisKey="id_principal" OtherKey="id_ubicacion" Type="ruta" />
+      <Association Name="ubicacione_trayecto" Member="trayectos" ThisKey="id_principal" OtherKey="id_ubicacion" Type="trayecto" />
+      <Association Name="ubicacione_notificacionesPersonalizada" Member="notificacionesPersonalizadas" ThisKey="id_principal" OtherKey="UbicacionId" Type="notificacionesPersonalizada" />
+      <Association Name="ubicacione_equipo_operacion" Member="equipo_operacions" ThisKey="id_principal" OtherKey="idBase" Type="equipo_operacion" />
+    </Type>
+  </Table>
+  <Table Name="tarifas_choferes">
+    <Type Name="tarifas_chofere">
+      <Column Name="id_tarifa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tarifa" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="id_tipo_vehiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_ruta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_cliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="llave_ruta_tarifas_chofere" Member="llave_ruta" ThisKey="id_ruta" OtherKey="id_ruta" Type="llave_ruta" IsForeignKey="true" />
+      <Association Name="tipo_equipo_tarifas_chofere" Member="tipo_equipo" ThisKey="id_tipo_vehiculo" OtherKey="id_tipo_equipo" Type="tipo_equipo" IsForeignKey="true" />
+      <Association Name="empresa_tarifas_chofere" Member="empresa" ThisKey="id_cliente" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" />
+      <Association Name="empresa_tarifas_chofere1" Member="empresa1" ThisKey="id_cliente" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tarifas_trayectos">
+    <Type Name="tarifas_trayecto">
+      <Column Name="id_tarifa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_trayecto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_vehiculo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tarifa" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="tipo_equipo_tarifas_trayecto" Member="tipo_equipo" ThisKey="id_tipo_vehiculo" OtherKey="id_tipo_equipo" Type="tipo_equipo" IsForeignKey="true" />
+      <Association Name="tipo_equipo_tarifas_trayecto1" Member="tipo_equipo1" ThisKey="id_tipo_vehiculo" OtherKey="id_tipo_equipo" Type="tipo_equipo" IsForeignKey="true" />
+      <Association Name="llave_trayecto_tarifas_trayecto" Member="llave_trayecto" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="llave_trayecto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="llave_trayectos">
+    <Type Name="llave_trayecto">
+      <Column Name="id_trayecto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="trayecto" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_ruta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="llave_trayecto_tarifas_trayecto" Member="tarifas_trayectos" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="tarifas_trayecto" />
+      <Association Name="llave_trayecto_trayecto_ruta" Member="trayecto_rutas" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="trayecto_ruta" />
+      <Association Name="llave_trayecto_trayecto" Member="trayectos" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="trayecto" />
+      <Association Name="llave_trayecto_trayectos_asignado" Member="trayectos_asignados" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="trayectos_asignado" />
+    </Type>
+  </Table>
+  <Table Name="trayecto_ruta" Member="trayecto_rutas">
+    <Type Name="trayecto_ruta">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_trayecto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_ruta" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="llave_ruta_trayecto_ruta" Member="llave_ruta" ThisKey="id_ruta" OtherKey="id_ruta" Type="llave_ruta" IsForeignKey="true" />
+      <Association Name="llave_trayecto_trayecto_ruta" Member="llave_trayecto" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="llave_trayecto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="trayectos">
+    <Type Name="trayecto">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_trayecto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_ubicacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_arrivo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="llave_trayecto_trayecto" Member="llave_trayecto" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="llave_trayecto" IsForeignKey="true" />
+      <Association Name="ubicacione_trayecto" Member="ubicacione" ThisKey="id_ubicacion" OtherKey="id_principal" Type="ubicacione" IsForeignKey="true" />
+      <Association Name="tipos_arrivo_trayecto" Member="tipos_arrivo" ThisKey="id_tipo_arrivo" OtherKey="id_tipo_arrivo" Type="tipos_arrivo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tipos_arrivos">
+    <Type Name="tipos_arrivo">
+      <Column Name="id_tipo_arrivo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="arrivo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tipos_arrivo_ruta" Member="rutas" ThisKey="id_tipo_arrivo" OtherKey="id_tipo_arrivo" Type="ruta" />
+      <Association Name="tipos_arrivo_trayecto" Member="trayectos" ThisKey="id_tipo_arrivo" OtherKey="id_tipo_arrivo" Type="trayecto" />
+    </Type>
+  </Table>
+  <Table Name="Tipo_reparacion" Member="Tipo_reparacions">
+    <Type Name="Tipo_reparacion">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="correctivo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="reparacion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idEstatus" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Tipo_reparacion_programacion_servicio" Member="programacion_servicios" ThisKey="id" OtherKey="id_reparacion" Type="programacion_servicio" />
+      <Association Name="Tipo_reparacion_reparacione1" Member="reparacione1s" ThisKey="id" OtherKey="tipo_reparacion" Type="reparacione1" />
+      <Association Name="Tipo_reparacion_reparacione" Member="reparaciones" ThisKey="id" OtherKey="tipo_reparacion" Type="reparacione" />
+    </Type>
+  </Table>
+  <Table Name="programacion_servicios">
+    <Type Name="programacion_servicio">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="distancia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_reparacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tipo_reparacion_programacion_servicio" Member="Tipo_reparacion" ThisKey="id_reparacion" OtherKey="id" Type="Tipo_reparacion" IsForeignKey="true" />
+      <Association Name="equipo_operacion_programacion_servicio" Member="equipo_operacion" ThisKey="id_equipo" OtherKey="id_equipo" Type="equipo_operacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="costo_combustible" Member="costo_combustibles">
+    <Type Name="costo_combustible">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipo_combustible" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="precio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="tipos_combustible_costo_combustible" Member="tipos_combustible" ThisKey="tipo_combustible" OtherKey="id" Type="tipos_combustible" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="guias">
+    <Type Name="guia">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="guia" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="id_viaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="viaje_guia" Member="viaje" ThisKey="id_viaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="gastos_reparacion" Member="gastos_reparacions">
+    <Type Name="gastos_reparacion">
+      <Column Name="idGastosReparacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_gasto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_correctivo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="gasto_gastos_reparacion" Member="gasto" ThisKey="id_gasto" OtherKey="id_gasto" Type="gasto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="solicitudCotizacion" Member="solicitudCotizacions">
+    <Type Name="solicitudCotizacion">
+      <Column Name="idSolicitud" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fecha_solicitud" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="idCotizacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="cotizacione_solicitudCotizacion" Member="cotizacione" ThisKey="idCotizacion" OtherKey="id_cotizacion" Type="cotizacione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="precios">
+    <Type Name="precio">
+      <Column Name="id_relacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_ruta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_recurso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_moneda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="especificacion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tarifa" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="precio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id_fecha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="factura_dolares" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="id_ruta_empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_cotizacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="letra" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="kms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="casetas" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="precio_variacion_precio" Member="variacion_precios" ThisKey="id_relacion" OtherKey="id_relacion" Type="variacion_precio" />
+      <Association Name="precio_contactosServicio" Member="contactosServicios" ThisKey="id_relacion" OtherKey="id_relacion" Type="contactosServicio" />
+      <Association Name="precio_CargosAdicionale" Member="CargosAdicionales" ThisKey="id_relacion" OtherKey="RelacionId" Type="CargosAdicionale" />
+      <Association Name="precio_viaje" Member="viajes" ThisKey="id_relacion" OtherKey="id_relacion" Type="viaje" />
+      <Association Name="fecha_precio" Member="fecha" ThisKey="id_fecha" OtherKey="id_fecha" Type="fecha" IsForeignKey="true" />
+      <Association Name="llave_ruta_precio" Member="llave_ruta" ThisKey="id_ruta" OtherKey="id_ruta" Type="llave_ruta" IsForeignKey="true" />
+      <Association Name="tipo_equipo_precio" Member="tipo_equipo" ThisKey="id_tipo_recurso" OtherKey="id_tipo_equipo" Type="tipo_equipo" IsForeignKey="true" />
+      <Association Name="tipos_moneda_precio" Member="tipos_moneda" ThisKey="id_moneda" OtherKey="id_moneda" Type="tipos_moneda" IsForeignKey="true" />
+      <Association Name="empresa_precio" Member="empresa" ThisKey="id_empresa" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="cotizacione_precio" Member="cotizacione" ThisKey="id_cotizacion" OtherKey="id_cotizacion" Type="cotizacione" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="margen" Member="margens">
+    <Type Name="margen">
+      <Column Name="idMargen" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="monto" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="margen" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="casetas" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="choferes" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="combustible" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="idViaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="otros" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="viaje_margen" Member="viaje" ThisKey="idViaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="preventivos">
+    <Type Name="preventivo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_reparacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="proximoServicio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="reparacione1_preventivo" Member="reparacione1" ThisKey="id_reparacion" OtherKey="idReparacion" Type="reparacione1" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="reparacione_preventivo" Member="reparacione" ThisKey="id_reparacion" OtherKey="idReparacion" Type="reparacione" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="equipo_operacion_preventivo" Member="equipo_operacion" ThisKey="id_equipo" OtherKey="id_equipo" Type="equipo_operacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="listaDistribucion" Member="listaDistribucions">
+    <Type Name="listaDistribucion">
+      <Column Name="idLista" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreLista" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="idStatus" Type="System.Int32" DbType="int" CanBeNull="true" />
+      <Association Name="listaDistribucion_contactosServicio" Member="contactosServicios" ThisKey="idLista" OtherKey="idLista" Type="contactosServicio" />
+      <Association Name="listaDistribucion_correo" Member="correos" ThisKey="idLista" OtherKey="idLista" Type="correo" />
+    </Type>
+  </Table>
+  <Table Name="contactosServicio" Member="contactosServicios">
+    <Type Name="contactosServicio">
+      <Column Name="idGrupo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_relacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idLista" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="listaDistribucion_contactosServicio" Member="listaDistribucion" ThisKey="idLista" OtherKey="idLista" Type="listaDistribucion" IsForeignKey="true" />
+      <Association Name="precio_contactosServicio" Member="precio" ThisKey="id_relacion" OtherKey="id_relacion" Type="precio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="correos">
+    <Type Name="correo">
+      <Column Name="idCorreo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="idLista" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="listaDistribucion_correo" Member="listaDistribucion" ThisKey="idLista" OtherKey="idLista" Type="listaDistribucion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Ordenes">
+    <Type Name="Ordene">
+      <Column Name="ano" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="consecutivo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_orden" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="Ordene_fechas_ordene" Member="fechas_ordenes" ThisKey="id_orden" OtherKey="id_orden" Type="fechas_ordene" />
+      <Association Name="Ordene_recargas_interna" Member="recargas_internas" ThisKey="id_orden" OtherKey="id_orden" Type="recargas_interna" />
+      <Association Name="Ordene_liquidacione" Member="liquidaciones" ThisKey="id_orden" OtherKey="id_orden" Type="liquidacione" />
+      <Association Name="Ordene_Odometro" Member="Odometros" ThisKey="id_orden" OtherKey="idOrden" Type="Odometro" />
+      <Association Name="Ordene_viaje" Member="viajes" ThisKey="id_orden" OtherKey="id_orden" Type="viaje" />
+    </Type>
+  </Table>
+  <Table Name="Odometros">
+    <Type Name="Odometro">
+      <Column Name="odometro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tipo_trayecto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_inspeccion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_odometro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_chofer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_asignacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="inspector" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="num_ejes" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idOrden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Ordene_Odometro" Member="Ordene" ThisKey="idOrden" OtherKey="id_orden" Type="Ordene" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="lotesFacturas">
+    <Type Name="lotesFactura">
+      <Column Name="idLote" AutoSync="OnInsert" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="lotesFactura_contrarecibo" Member="contrarecibos" ThisKey="idLote" OtherKey="idLote" Type="contrarecibo" />
+    </Type>
+  </Table>
+  <Table Name="contrarecibos">
+    <Type Name="contrarecibo">
+      <Column Name="idContra" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_factura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idLote" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="lotesFactura_contrarecibo" Member="lotesFactura" ThisKey="idLote" OtherKey="idLote" Type="lotesFactura" IsForeignKey="true" />
+      <Association Name="factura_contrarecibo" Member="factura" ThisKey="id_factura" OtherKey="id_factura" Type="factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="tiposViajes">
+    <Type Name="tiposViaje">
+      <Column Name="idTipo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombreViaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tiposViaje_clasificacionViaje" Member="clasificacionViajes" ThisKey="idTipo" OtherKey="idTipo" Type="clasificacionViaje" />
+    </Type>
+  </Table>
+  <Table Name="clasificacionViajes">
+    <Type Name="clasificacionViaje">
+      <Column Name="idConsolidado" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idViaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idTipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tiposViaje_clasificacionViaje" Member="tiposViaje" ThisKey="idTipo" OtherKey="idTipo" Type="tiposViaje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="notificacionesPersonalizadas">
+    <Type Name="notificacionesPersonalizada">
+      <Column Name="NotificacionId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UbicacionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmpresaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RutaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ubicacione_notificacionesPersonalizada" Member="ubicacione" ThisKey="UbicacionId" OtherKey="id_principal" Type="ubicacione" IsForeignKey="true" />
+      <Association Name="empresa_notificacionesPersonalizada" Member="empresa" ThisKey="EmpresaId" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="seguimientoPorRecorrer" Member="seguimientoPorRecorrers">
+    <Type Name="seguimientoPorRecorrer">
+      <Column Name="SeguimientoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ubicacion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UbicacionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idViaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="hora" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="viaje_seguimientoPorRecorrer" Member="viaje" ThisKey="idViaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CargosAdicionales">
+    <Type Name="CargosAdicionale">
+      <Column Name="CargoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ConceptoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RelacionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cargo" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="precio_CargosAdicionale" Member="precio" ThisKey="RelacionId" OtherKey="id_relacion" Type="precio" IsForeignKey="true" />
+      <Association Name="Concepto_CargosAdicionale" Member="Concepto" ThisKey="ConceptoId" OtherKey="ConceptoId" Type="Concepto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Conceptos">
+    <Type Name="Concepto">
+      <Column Name="ConceptoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="concepto" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EstatusId" Type="System.Int32" DbType="Int" CanBeNull="false" />
+      <Association Name="Concepto_CargosAdicionale" Member="CargosAdicionales" ThisKey="ConceptoId" OtherKey="ConceptoId" Type="CargosAdicionale" />
+    </Type>
+  </Table>
+  <Table Name="cajaAsignada" Member="cajaAsignadas">
+    <Type Name="cajaAsignada">
+      <Column Name="idCajaAsignada" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CajaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EquipoAsignadoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Caja_cajaAsignada" Member="Caja" ThisKey="CajaId" OtherKey="CajaId" Type="Caja" IsForeignKey="true" />
+      <Association Name="equipo_asignado_cajaAsignada" Member="equipo_asignado" ThisKey="EquipoAsignadoId" OtherKey="id_equipo_asignado" Type="equipo_asignado" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="ContactosCFDI" Member="ContactosCFDIs">
+    <Type Name="ContactosCFDI">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="idDatoFacturacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="datos_facturacion_ContactosCFDI" Member="datos_facturacion" ThisKey="idDatoFacturacion" OtherKey="id_dato" Type="datos_facturacion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="tipos_combustible" Member="tipos_combustibles">
+    <Type Name="tipos_combustible">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="combustible" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tipos_combustible_costo_combustible" Member="costo_combustibles" ThisKey="id" OtherKey="tipo_combustible" Type="costo_combustible" />
+    </Type>
+  </Table>
+  <Table Name="insite" Member="insites">
+    <Type Name="insite">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="rendimiento" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="idEquipoAsignado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="cfdiPendienteCancelar" Member="cfdiPendienteCancelars">
+    <Type Name="cfdiPendienteCancelar">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCfdi" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cfdi_cfdiPendienteCancelar" Member="cfdi" ThisKey="idCfdi" OtherKey="id" Type="cfdi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="recorridoEquipo" Member="recorridoEquipos">
+    <Type Name="recorridoEquipo">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipoTrayecto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="grupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEquipoAsignado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="equipo_asignado_recorridoEquipo" Member="equipo_asignado" ThisKey="idEquipoAsignado" OtherKey="id_equipo_asignado" Type="equipo_asignado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="recorridoEquipo" Member="recorridoEquipo1s">
+    <Type Name="recorridoEquipo1">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tipoTrayecto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="grupo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idEquipoAsignado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="equipo_asignado_recorridoEquipo1" Member="equipo_asignado" ThisKey="idEquipoAsignado" OtherKey="id_equipo_asignado" Type="equipo_asignado" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="fallasSinReporte" Member="fallasSinReportes">
+    <Type Name="fallasSinReporte">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idEquipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idReparacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="reparaciones" Member="reparacione1s">
+    <Type Name="reparacione1">
+      <Column Name="idReparacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="odometro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="lugar" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="comentarios" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="costo" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="tipo_reparacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEquipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idReporte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="reparacione1_preventivo" Member="preventivos" ThisKey="idReparacion" OtherKey="id_reparacion" Type="preventivo" />
+      <Association Name="Tipo_reparacion_reparacione1" Member="Tipo_reparacion1" ThisKey="tipo_reparacion" OtherKey="id" Type="Tipo_reparacion" IsForeignKey="true" />
+      <Association Name="reportes_falla_reparacione1" Member="reportes_falla" ThisKey="idReporte" OtherKey="ReporteId" Type="reportes_falla" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="reparaciones">
+    <Type Name="reparacione">
+      <Column Name="idReparacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="odometro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="lugar" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="comentarios" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="costo" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="tipo_reparacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEquipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idReporte" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="reparacione_preventivo" Member="preventivos" ThisKey="idReparacion" OtherKey="id_reparacion" Type="preventivo" />
+      <Association Name="Tipo_reparacion_reparacione" Member="Tipo_reparacion1" ThisKey="tipo_reparacion" OtherKey="id" Type="Tipo_reparacion" IsForeignKey="true" />
+      <Association Name="reportes_falla_reparacione" Member="reportes_falla" ThisKey="idReporte" OtherKey="ReporteId" Type="reportes_falla" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="empresas">
+    <Type Name="empresa">
+      <Column Name="id_empresa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_tipo_empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_alta" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="frecuente" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="empresa_contacto" Member="contactos" ThisKey="id_empresa" OtherKey="id_empresa" Type="contacto" />
+      <Association Name="empresa_detalle_arrivo" Member="detalle_arrivos" ThisKey="id_empresa" OtherKey="id_empresa" Type="detalle_arrivo" />
+      <Association Name="empresa_tarifas_chofere" Member="tarifas_choferes" ThisKey="id_empresa" OtherKey="id_cliente" Type="tarifas_chofere" />
+      <Association Name="empresa_tarifas_chofere1" Member="tarifas_choferes1" ThisKey="id_empresa" OtherKey="id_cliente" Type="tarifas_chofere" />
+      <Association Name="empresa_precio" Member="precios" ThisKey="id_empresa" OtherKey="id_empresa" Type="precio" />
+      <Association Name="empresa_notificacionesPersonalizada" Member="notificacionesPersonalizadas" ThisKey="id_empresa" OtherKey="EmpresaId" Type="notificacionesPersonalizada" />
+      <Association Name="empresa_proveedores_pago" Member="proveedores_pagos" ThisKey="id_empresa" OtherKey="id_proveedor" Type="proveedores_pago" />
+      <Association Name="empresa_datos_facturacion" Member="datos_facturacions" ThisKey="id_empresa" OtherKey="id_empresa" Type="datos_facturacion" />
+      <Association Name="empresa_precios_caja" Member="precios_cajas" ThisKey="id_empresa" OtherKey="id_cliente" Type="precios_caja" />
+    </Type>
+  </Table>
+  <Table Name="rendimientos">
+    <Type Name="rendimiento">
+      <Column Name="idRendimiento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="lts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="kms" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rendimiento" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="idEquipoAsignado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="grupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="equipo_asignado_rendimiento" Member="equipo_asignado" ThisKey="idEquipoAsignado" OtherKey="id_equipo_asignado" Type="equipo_asignado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="facturasOtros">
+    <Type Name="facturasOtro">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="concepto" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="idFactura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="factura_facturasOtro" Member="factura" ThisKey="idFactura" OtherKey="id_factura" Type="factura" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="proveedores_pago" Member="proveedores_pagos">
+    <Type Name="proveedores_pago">
+      <Column Name="id_pago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_gasto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_programacion_pago" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="fecha_pago" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="id_proveedor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_cuenta" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="referencia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="conta_cuenta_proveedores_pago" Member="conta_cuenta" ThisKey="id_cuenta" OtherKey="id_cuenta" Type="conta_cuenta" IsForeignKey="true" />
+      <Association Name="empresa_proveedores_pago" Member="empresa" ThisKey="id_proveedor" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" />
+      <Association Name="gasto_proveedores_pago" Member="gasto" ThisKey="id_gasto" OtherKey="id_gasto" Type="gasto" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="gastos">
+    <Type Name="gasto">
+      <Column Name="cantidad" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id_forma_pago" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_moneda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="id_concepto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id_gasto" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_lote" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="pendiente" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="gasto_comprobantes_fiscale" Member="comprobantes_fiscales" ThisKey="id_gasto" OtherKey="id_gasto" Type="comprobantes_fiscale" />
+      <Association Name="gasto_recargas_externa" Member="recargas_externas" ThisKey="id_gasto" OtherKey="id_gasto" Type="recargas_externa" />
+      <Association Name="gasto_liquidacione" Member="liquidaciones" ThisKey="id_gasto" OtherKey="id_gasto" Type="liquidacione" />
+      <Association Name="gasto_gastos_reparacion" Member="gastos_reparacions" ThisKey="id_gasto" OtherKey="id_gasto" Type="gastos_reparacion" />
+      <Association Name="gasto_proveedores_pago" Member="proveedores_pagos" ThisKey="id_gasto" OtherKey="id_gasto" Type="proveedores_pago" />
+      <Association Name="formas_pago_gasto" Member="formas_pago" ThisKey="id_forma_pago" OtherKey="id_forma_pago" Type="formas_pago" IsForeignKey="true" />
+      <Association Name="lote_aprobacion_gasto" Member="lote_aprobacion" ThisKey="id_lote" OtherKey="id_lote" Type="lote_aprobacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="reportes_fallas">
+    <Type Name="reportes_falla">
+      <Column Name="ReporteId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="falla" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="salida" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="idEquipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idOrden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idChofer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="reportes_falla_reparacione1" Member="reparacione1s" ThisKey="ReporteId" OtherKey="idReporte" Type="reparacione1" />
+      <Association Name="reportes_falla_reparacione" Member="reparaciones" ThisKey="ReporteId" OtherKey="idReporte" Type="reparacione" />
+    </Type>
+  </Table>
+  <Table Name="datos_facturacion" Member="datos_facturacions">
+    <Type Name="datos_facturacion">
+      <Column Name="id_dato" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="razon_social" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="calle" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="noExterior" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="colonia" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="municipio" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="estado" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="c_postal" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="rfc" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="id_empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tipo_cambio" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="retencion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="pais" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idEstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="diasCredito" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="datos_facturacion_ContactosCFDI" Member="ContactosCFDIs" ThisKey="id_dato" OtherKey="idDatoFacturacion" Type="ContactosCFDI" />
+      <Association Name="datos_facturacion_factura" Member="facturas" ThisKey="id_dato" OtherKey="id_dato_facturacion" Type="factura" />
+      <Association Name="empresa_datos_facturacion" Member="empresa" ThisKey="id_empresa" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="cfdi" Member="cfdis">
+    <Type Name="cfdi">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="folioFiscal" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="serie" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="idFactura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="enviadoA" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="cfdi_cfdiPendienteCancelar" Member="cfdiPendienteCancelars" ThisKey="id" OtherKey="idCfdi" Type="cfdiPendienteCancelar" />
+      <Association Name="factura_cfdi" Member="factura" ThisKey="idFactura" OtherKey="id_factura" Type="factura" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="trayectos_asignados">
+    <Type Name="trayectos_asignado">
+      <Column Name="id_trayecto_asignado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_trayecto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EquipoAsignadoId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEstatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="inicio" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="fin" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="llave_trayecto_trayectos_asignado" Member="llave_trayecto" ThisKey="id_trayecto" OtherKey="id_trayecto" Type="llave_trayecto" IsForeignKey="true" />
+      <Association Name="equipo_asignado_trayectos_asignado" Member="equipo_asignado" ThisKey="EquipoAsignadoId" OtherKey="id_equipo_asignado" Type="equipo_asignado" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="configuracion_cotizador" Member="configuracion_cotizadors">
+    <Type Name="configuracion_cotizador">
+      <Column Name="id_configuracion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="precio_diesel" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="costo_kilometro" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="porcentaje_chofer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rendimiento_tracto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="rendimiento_rabon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="rendimiento_pickup" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="manejo_rabon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="manejo_pickup" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="factor_retorno" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="meses_vigencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rendimiento_Plataforma" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="precios_cajas">
+    <Type Name="precios_caja">
+      <Column Name="id_precio_caja" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="precioXmes" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="id_cliente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_moneda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="factura_dolares" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="tipo_cambio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="esXmes" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="precioDiario" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Association Name="precios_caja_orden_caja" Member="orden_cajas" ThisKey="id_precio_caja" OtherKey="id_precio" Type="orden_caja" />
+      <Association Name="empresa_precios_caja" Member="empresa" ThisKey="id_cliente" OtherKey="id_empresa" Type="empresa" IsForeignKey="true" />
+      <Association Name="tipos_moneda_precios_caja" Member="tipos_moneda" ThisKey="id_moneda" OtherKey="id_moneda" Type="tipos_moneda" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="notasCredito" Member="notasCreditos">
+    <Type Name="notasCredito">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="importe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="folio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="iva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="retencion" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="cancelada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="facturadaDolares" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="folioFiscal" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="serie" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="enviadoA" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="notasCredito_facturasConCredito" Member="facturasConCreditos" ThisKey="id" OtherKey="idNota" Type="facturasConCredito" />
+    </Type>
+  </Table>
+  <Table Name="facturas">
+    <Type Name="factura">
+      <Column Name="id_factura" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="folio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="importe" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="iva" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="retencion" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="total" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Cancelada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="id_dato_facturacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="facturada_dolares" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Contrarecibo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="facturaAmericana" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="saldo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="factura_facturacion" Member="facturacions" ThisKey="id_factura" OtherKey="id_factura" Type="facturacion" />
+      <Association Name="factura_fechas_facturacion" Member="fechas_facturacions" ThisKey="id_factura" OtherKey="id_factura" Type="fechas_facturacion" />
+      <Association Name="factura_tipo_cambio" Member="tipo_cambios" ThisKey="id_factura" OtherKey="id_factura" Type="tipo_cambio" />
+      <Association Name="factura_facturas_caja" Member="facturas_cajas" ThisKey="id_factura" OtherKey="id_factura" Type="facturas_caja" />
+      <Association Name="factura_contrarecibo" Member="contrarecibos" ThisKey="id_factura" OtherKey="id_factura" Type="contrarecibo" />
+      <Association Name="factura_facturasOtro" Member="facturasOtros" ThisKey="id_factura" OtherKey="idFactura" Type="facturasOtro" />
+      <Association Name="factura_cfdi" Member="cfdis" ThisKey="id_factura" OtherKey="idFactura" Type="cfdi" />
+      <Association Name="factura_facturasConCredito" Member="facturasConCreditos" ThisKey="id_factura" OtherKey="idFactura" Type="facturasConCredito" />
+      <Association Name="datos_facturacion_factura" Member="datos_facturacion" ThisKey="id_dato_facturacion" OtherKey="id_dato" Type="datos_facturacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="facturasConCredito" Member="facturasConCreditos">
+    <Type Name="facturasConCredito">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idFactura" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idNota" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="factura_facturasConCredito" Member="factura" ThisKey="idFactura" OtherKey="id_factura" Type="factura" IsForeignKey="true" />
+      <Association Name="notasCredito_facturasConCredito" Member="notasCredito" ThisKey="idNota" OtherKey="id" Type="notasCredito" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="equipo_operacion" Member="equipo_operacions">
+    <Type Name="equipo_operacion">
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="economico" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="placa" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_marca" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="serie" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_tipo_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ano" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="idBase" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="enBase" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="localero" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="equipo_operacion_orden_caja" Member="orden_cajas" ThisKey="id_equipo" OtherKey="id_equipo" Type="orden_caja" />
+      <Association Name="equipo_operacion_programacion_servicio" Member="programacion_servicios" ThisKey="id_equipo" OtherKey="id_equipo" Type="programacion_servicio" />
+      <Association Name="equipo_operacion_preventivo" Member="preventivos" ThisKey="id_equipo" OtherKey="id_equipo" Type="preventivo" />
+      <Association Name="equipo_operacion_equipo_asignado" Member="equipo_asignados" ThisKey="id_equipo" OtherKey="id_equipo" Type="equipo_asignado" />
+      <Association Name="marca_equipo_operacion" Member="marca" ThisKey="id_marca" OtherKey="id_marca" Type="marca" IsForeignKey="true" />
+      <Association Name="tipo_equipo_equipo_operacion" Member="tipo_equipo" ThisKey="id_tipo_equipo" OtherKey="id_tipo_equipo" Type="tipo_equipo" IsForeignKey="true" />
+      <Association Name="ubicacione_equipo_operacion" Member="ubicacione" ThisKey="idBase" OtherKey="id_principal" Type="ubicacione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Cajas">
+    <Type Name="Caja">
+      <Column Name="CajaId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="economico" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="placa" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="marcaId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="serie" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="tipoCaja" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="estatusId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ano" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Caja_cajaAsignada" Member="cajaAsignadas" ThisKey="CajaId" OtherKey="CajaId" Type="cajaAsignada" />
+      <Association Name="Caja_datos_caja" Member="datos_cajas" ThisKey="CajaId" OtherKey="id_equipo" Type="datos_caja" />
+      <Association Name="marca_Caja" Member="marca" ThisKey="marcaId" OtherKey="id_marca" Type="marca" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="datos_caja" Member="datos_cajas">
+    <Type Name="datos_caja">
+      <Column Name="id_dato_caja" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pies" Type="System.String" DbType="NVarChar(2)" CanBeNull="true" />
+      <Column Name="id_tipo_uso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_cruce" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Caja_datos_caja" Member="Caja" ThisKey="id_equipo" OtherKey="CajaId" Type="Caja" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.llegadaDestinos" Member="llegadaDestinos">
+    <Type Name="llegadaDestino">
+      <Column Name="idLLegada" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idArrivo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="idViaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="diferencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fechaReal" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="detalle_arrivo_llegadaDestino" Member="detalle_arrivo" ThisKey="idArrivo" OtherKey="id_detalle" Type="detalle_arrivo" IsForeignKey="true" />
+      <Association Name="viaje_llegadaDestino" Member="viaje" ThisKey="idViaje" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.equipo_asignado" Member="equipo_asignados">
+    <Type Name="equipo_asignado">
+      <Column Name="id_equipo_asignado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ViajeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="equipo_asignado_cajaAsignada" Member="cajaAsignadas" ThisKey="id_equipo_asignado" OtherKey="EquipoAsignadoId" Type="cajaAsignada" />
+      <Association Name="equipo_asignado_recorridoEquipo" Member="recorridoEquipos" ThisKey="id_equipo_asignado" OtherKey="idEquipoAsignado" Type="recorridoEquipo" />
+      <Association Name="equipo_asignado_recorridoEquipo1" Member="recorridoEquipo1s" ThisKey="id_equipo_asignado" OtherKey="idEquipoAsignado" Type="recorridoEquipo1" />
+      <Association Name="equipo_asignado_rendimiento" Member="rendimientos" ThisKey="id_equipo_asignado" OtherKey="idEquipoAsignado" Type="rendimiento" />
+      <Association Name="equipo_asignado_trayectos_asignado" Member="trayectos_asignados" ThisKey="id_equipo_asignado" OtherKey="EquipoAsignadoId" Type="trayectos_asignado" />
+      <Association Name="equipo_asignado_recargas_combustible" Member="recargas_combustibles" ThisKey="id_equipo_asignado" OtherKey="idEquipoAsignado" Type="recargas_combustible" />
+      <Association Name="empleado_equipo_asignado" Member="empleado" ThisKey="idEmpleado" OtherKey="id_empleado" Type="empleado" IsForeignKey="true" />
+      <Association Name="equipo_operacion_equipo_asignado" Member="equipo_operacion" ThisKey="id_equipo" OtherKey="id_equipo" Type="equipo_operacion" IsForeignKey="true" />
+      <Association Name="viaje_equipo_asignado" Member="viaje" ThisKey="ViajeId" OtherKey="id_viaje" Type="viaje" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cotizaciones" Member="cotizaciones">
+    <Type Name="cotizacione">
+      <Column Name="id_cotizacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_contacto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="vigencia" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="ano" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="consecutivo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fecha_realizacion" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="fechaCaducidadPrecio" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="enviadoA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="cotizacione_solicitudCotizacion" Member="solicitudCotizacions" ThisKey="id_cotizacion" OtherKey="idCotizacion" Type="solicitudCotizacion" />
+      <Association Name="cotizacione_precio" Member="precios" ThisKey="id_cotizacion" OtherKey="id_cotizacion" Type="precio" />
+      <Association Name="contacto_cotizacione" Member="contacto" ThisKey="id_contacto" OtherKey="id_contacto" Type="contacto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.recargas_combustible" Member="recargas_combustibles">
+    <Type Name="recargas_combustible">
+      <Column Name="id_recarga" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_lugar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="lts" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="id_equipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_chofer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEquipoAsignado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="grupo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="recargaSinOrden" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="monto" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ticket" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="odometro" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fechaRecarga" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="responsable" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="idUso" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="en_galones" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="recargas_combustible_recargas_interna" Member="recargas_internas" ThisKey="id_recarga" OtherKey="id_recarga" Type="recargas_interna" />
+      <Association Name="recargas_combustible_recargas_externa" Member="recargas_externas" ThisKey="id_recarga" OtherKey="id_recarga" Type="recargas_externa" />
+      <Association Name="equipo_asignado_recargas_combustible" Member="equipo_asignado" ThisKey="idEquipoAsignado" OtherKey="id_equipo_asignado" Type="equipo_asignado" IsForeignKey="true" />
+      <Association Name="lugares_recarga_recargas_combustible" Member="lugares_recarga" ThisKey="id_lugar" OtherKey="id_lugar" Type="lugares_recarga" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.viajes" Member="viajes">
+    <Type Name="viaje">
+      <Column Name="num_viaje" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_contacto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_relacion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_orden" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_viaje" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="verificado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="facturado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="remision" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="inicioReal" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="pendienteCosteo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="optimizado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="fechaCierre" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="observaciones" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="viaje_fechas_viaje" Member="fechas_viajes" ThisKey="id_viaje" OtherKey="id_viaje" Type="fechas_viaje" />
+      <Association Name="viaje_facturacion" Member="facturacions" ThisKey="id_viaje" OtherKey="id_viaje" Type="facturacion" />
+      <Association Name="viaje_recoleccione" Member="recolecciones" ThisKey="id_viaje" OtherKey="id_viaje" Type="recoleccione" />
+      <Association Name="viaje_seguimiento" Member="seguimientos" ThisKey="id_viaje" OtherKey="id_viaje" Type="seguimiento" />
+      <Association Name="viaje_guia" Member="guias" ThisKey="id_viaje" OtherKey="id_viaje" Type="guia" />
+      <Association Name="viaje_margen" Member="margens" ThisKey="id_viaje" OtherKey="idViaje" Type="margen" />
+      <Association Name="viaje_seguimientoPorRecorrer" Member="seguimientoPorRecorrers" ThisKey="id_viaje" OtherKey="idViaje" Type="seguimientoPorRecorrer" />
+      <Association Name="viaje_llegadaDestino" Member="llegadaDestinos" ThisKey="id_viaje" OtherKey="idViaje" Type="llegadaDestino" />
+      <Association Name="viaje_equipo_asignado" Member="equipo_asignados" ThisKey="id_viaje" OtherKey="ViajeId" Type="equipo_asignado" />
+      <Association Name="contacto_viaje" Member="contacto" ThisKey="id_contacto" OtherKey="id_contacto" Type="contacto" IsForeignKey="true" />
+      <Association Name="Ordene_viaje" Member="Ordene" ThisKey="id_orden" OtherKey="id_orden" Type="Ordene" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="precio_viaje" Member="precio" ThisKey="id_relacion" OtherKey="id_relacion" Type="precio" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
